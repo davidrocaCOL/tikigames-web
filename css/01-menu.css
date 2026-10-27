@@ -85,6 +85,10 @@
 }
 .nav-search-btn:hover { color: var(--cyan); }
 
+/* Botón de descarga de la app (arriba a la derecha y en cada juego) */
+.btn-descargar { gap: 8px; white-space: nowrap; }
+.btn-descargar .icono-windows { flex-shrink: 0; }
+
 /* Hamburger */
 .hamburger {
   display: none;
@@ -171,4 +175,5 @@
   .hamburger { display: flex; }
   .nav-links { display: none; }
   .btn-primary.nav-cta { padding: 10px 16px; font-size: 13px; }
+  .nav-actions .btn-descargar { padding: 10px 14px; font-size: 13px; }
 }

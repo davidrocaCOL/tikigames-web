@@ -38,7 +38,7 @@
     <button class="nav-search-btn" data-search-open title="Buscar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     </button>
-    <button class="btn btn-primary" onclick="openModal('modal-login')" id="nav-login-btn">Iniciar Sesión</button>
+    <a class="btn btn-primary btn-descargar" href="https://github.com/davidrocaCOL/tikigames/releases/latest/download/TikiGames-Instalador.exe"><svg class="icono-windows" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span>Descargar</span></a>
   </div>
   <button class="hamburger"><span></span><span></span><span></span></button>
 </nav>
@@ -48,7 +48,7 @@
   <a href="pages/catalogo.html">Juegos</a>
   <a href="pages/comunidad.html">Comunidad</a>
   <div style="margin-top:16px;">
-    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="openModal('modal-login')">Iniciar Sesión</button>
+    <a class="btn btn-primary btn-descargar" style="width:100%;justify-content:center;" href="https://github.com/davidrocaCOL/tikigames/releases/latest/download/TikiGames-Instalador.exe"><svg class="icono-windows" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span>Descargar TikiGames</span></a>
   </div>
 </div>
 
@@ -159,14 +159,6 @@
         <a href="pages/mundialito.html" class="btn btn-primary btn-lg" id="btn-comprar" style="width:100%;justify-content:center;font-size:19px;padding:18px 28px;box-shadow:0 0 28px rgba(255,0,80,0.35);">
           Juega Ya
         </a>
-        <div class="trial-btn-wrap">
-          <button class="btn btn-outline btn-lg" style="width:100%;justify-content:center;" onclick="openModal('modal-trial')">
-            Prueba 1 día gratis
-          </button>
-          <div class="trial-tooltip">
-            Compruébalo tú mismo primero: descubre el excelente juego que vas a disfrutar junto a tu comunidad. Tu primer día — 24 horas — es totalmente gratis.
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -192,9 +184,6 @@
       <div style="display:flex;flex-direction:column;gap:14px;max-width:340px;">
         <a href="pages/carreritas.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;font-size:19px;padding:18px 28px;box-shadow:0 0 28px rgba(255,0,80,0.35);">
           Juega Ya
-        </a>
-        <a href="pages/carreritas.html" class="btn btn-outline btn-lg" style="width:100%;justify-content:center;">
-          Prueba 1 día — $2 USD
         </a>
       </div>
     </div>
@@ -268,94 +257,7 @@
   </div>
 </footer>
 
-<!-- MODAL LOGIN -->
-<div class="modal-overlay" id="modal-login">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-login')">✕</button>
-    <h2>Iniciar Sesión</h2>
-    <p class="subtitle">Bienvenido de vuelta a TikiGames</p>
-    <div class="form-group">
-      <label>Correo electrónico</label>
-      <input type="email" class="form-control" placeholder="tu@correo.com" />
-    </div>
-    <div class="form-group">
-      <label>Contraseña</label>
-      <input type="password" class="form-control" placeholder="••••••••" />
-    </div>
-    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;" onclick="closeModal('modal-login');showToast('Bienvenido','Sesión iniciada correctamente','')">
-      Entrar
-    </button>
-    <div style="text-align:center;margin-top:20px;">
-      <p style="color:var(--text-dim);font-size:14px;">¿No tienes cuenta? <a href="#" style="color:var(--cyan);">Regístrate gratis</a></p>
-    </div>
-  </div>
-</div>
 
-<!-- MODAL PRUEBA GRATIS -->
-<div class="modal-overlay" id="modal-trial">
-  <div class="modal" style="max-width:480px;">
-    <button class="modal-close" onclick="cerrarPrueba()">✕</button>
-
-    <div id="trial-step-1">
-      <h2>Prueba gratis 24 horas</h2>
-      <p class="subtitle">Juega Mundialito Torneo gratis por un día, sin compromiso</p>
-
-      <div style="background:rgba(0,240,255,0.05);border:1px solid rgba(0,240,255,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:20px;">
-        <p style="font-size:13px;color:var(--text-gray);line-height:1.7;">
-          Actívalo con tu usuario de TikTok y tendrás acceso completo durante <strong style="color:white;">24 horas</strong>, totalmente gratis. Sin tarjeta, sin compromiso.
-        </p>
-      </div>
-
-      <div class="form-group">
-        <label>Usuario de TikTok</label>
-        <input type="text" class="form-control" id="trial-tiktok" placeholder="@tuusuario" />
-      </div>
-      <div class="form-group">
-        <label>Correo electrónico</label>
-        <input type="email" class="form-control" id="trial-email" placeholder="tu@correo.com" />
-      </div>
-
-      <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text-gray);margin-bottom:20px;cursor:pointer;">
-        <input type="checkbox" id="trial-extra-day" style="margin-top:3px;" />
-        Quiero un segundo día de prueba (+$2 USD adicionales)
-      </label>
-
-      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" onclick="solicitarPrueba()">
-        Comenzar prueba gratis
-      </button>
-      <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--text-dim);">
-        Te contactaremos por correo para activar tu acceso.
-      </p>
-    </div>
-
-    <div id="trial-step-2" style="display:none;text-align:center;padding:20px 0;">
-      <div style="width:72px;height:72px;border-radius:50%;background:rgba(0,240,255,0.08);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h2 style="color:var(--cyan);margin-bottom:8px;">¡Solicitud enviada!</h2>
-      <p style="color:var(--text-gray);line-height:1.7;margin-bottom:16px;">
-        Se abrió tu correo con la solicitud de prueba gratis. Envíalo y activaremos tu acceso de 24 horas lo antes posible.
-      </p>
-      <button class="btn btn-outline" style="margin:0 auto;" onclick="cerrarPrueba()">Cerrar</button>
-    </div>
-  </div>
-</div>
-
-<style>
-.trial-btn-wrap { position:relative; }
-.trial-btn-wrap .btn-outline:hover {
-  border-color:#ffd700 !important; color:#ffd700 !important;
-  box-shadow:0 0 18px rgba(255,215,0,0.35);
-}
-.trial-tooltip {
-  position:absolute; bottom:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(6px);
-  width:280px; background:var(--bg-secondary); border:1px solid var(--cyan); border-radius:var(--radius-sm);
-  padding:12px 14px; font-size:12.5px; line-height:1.6; color:var(--text-gray);
-  box-shadow:0 8px 24px rgba(0,0,0,0.4); opacity:0; pointer-events:none;
-  transition:opacity 0.2s ease, transform 0.2s ease; z-index:20;
-}
-.trial-btn-wrap:hover .trial-tooltip { opacity:1; transform:translateX(-50%) translateY(0); }
-</style>
 <div class="search-overlay" id="search-overlay">
   <button data-search-close style="position:absolute;top:30px;right:40px;font-size:28px;color:var(--text-gray);">✕</button>
   <div class="search-input-wrap">
@@ -372,7 +274,6 @@
 <script src="js/02-animaciones.js?v=17"></script>
 <script src="js/03-interfaz.js?v=17"></script>
 <script src="js/04-idioma.js?v=17"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 // ─── Carrusel del hero (autoplay + controles) ──
 let heroSlideIndex = 0;
@@ -411,75 +312,6 @@ document.addEventListener('click', (e) => {
   heroCarouselMove(parseInt(btn.getAttribute('data-hero-arrow'), 10));
 });
 
-const EMAILJS_PUBLIC_KEY    = 'hCji3MRPS1jUo_Evq';
-const EMAILJS_SERVICE_ID    = 'service_7nzw2z9';
-const EMAILJS_TEMPLATE_AVISO = 'template_d5cm63g';
-const emailjsListo = () => window.emailjs && !EMAILJS_PUBLIC_KEY.startsWith('TU_');
-if (emailjsListo()) emailjs.init(EMAILJS_PUBLIC_KEY);
-// ─── Solicitud de prueba gratis (24h) ────────────
-function solicitarPrueba() {
-  const tiktokEl = document.getElementById('trial-tiktok');
-  const emailEl  = document.getElementById('trial-email');
-  const tiktok   = tiktokEl.value.trim();
-  const email    = emailEl.value.trim();
-  const extra    = document.getElementById('trial-extra-day').checked;
-
-  let ok = true;
-  if (!tiktok) {
-    tiktokEl.style.borderColor = 'var(--red)';
-    tiktokEl.style.boxShadow   = '0 0 0 3px rgba(255,0,80,0.15)';
-    tiktokEl.placeholder = 'Este campo es obligatorio';
-    ok = false;
-  } else { tiktokEl.style.borderColor = ''; tiktokEl.style.boxShadow = ''; }
-
-  if (!email || !email.includes('@')) {
-    emailEl.style.borderColor = 'var(--red)';
-    emailEl.style.boxShadow   = '0 0 0 3px rgba(255,0,80,0.15)';
-    emailEl.placeholder = email ? 'Correo inválido' : 'Este campo es obligatorio';
-    ok = false;
-  } else { emailEl.style.borderColor = ''; emailEl.style.boxShadow = ''; }
-
-  if (!ok) { showToast('Completa tu usuario de TikTok y correo para continuar'); return; }
-
-  const asuntoTexto = 'Solicitud de prueba gratis — Mundialito Torneo';
-  const cuerpoTexto =
-`Hola equipo de TikiGames,
-
-Quiero activar mi prueba gratis de 24 horas de Mundialito Torneo.
-
-Usuario de TikTok: ${tiktok}
-Correo de contacto: ${email}
-Día adicional de prueba (+$2 USD): ${extra ? 'Sí, quiero un segundo día' : 'No, solo el día gratis'}
-
-Quedo atento a la activación.`;
-
-  if (emailjsListo()) {
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_AVISO, {
-      tipo: 'Prueba gratis', nombre: tiktok, email: email, mensaje: cuerpoTexto, reply_to: email
-    }).catch(() => {
-      window.open(`mailto:soporte.tikigames@gmail.com?subject=${encodeURIComponent(asuntoTexto)}&body=${encodeURIComponent(cuerpoTexto)}`);
-    });
-  } else {
-    window.open(`mailto:soporte.tikigames@gmail.com?subject=${encodeURIComponent(asuntoTexto)}&body=${encodeURIComponent(cuerpoTexto)}`);
-  }
-
-  document.getElementById('trial-step-1').style.display = 'none';
-  document.getElementById('trial-step-2').style.display = 'block';
-}
-
-function cerrarPrueba() {
-  document.getElementById('trial-step-1').style.display = 'block';
-  document.getElementById('trial-step-2').style.display = 'none';
-  ['trial-tiktok','trial-email'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-  document.getElementById('trial-extra-day').checked = false;
-  closeModal('modal-trial');
-}
-window.cerrarPrueba = cerrarPrueba;
-
-document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('modal-trial');
-  if (overlay) overlay.addEventListener('click', e => { if (e.target === overlay) cerrarPrueba(); });
-});
 </script>
 </body>
 </html>
