@@ -1,0 +1,179 @@
+/* ============================================
+   TIKIGAMES - PÁGINAS: Juegos y Comunidad
+   Reutiliza lo de la portada (04-portada.css: .p-cabeza, .p-juego,
+   .jc-titulo, .ic-caja) y añade el menú de categorías, la ficha de
+   cada juego, el contacto y las novedades.
+   ============================================ */
+
+.pg-arriba { padding: 120px 0 10px; }
+.pg-arriba .p-cabeza { margin-bottom: 30px; }
+.pg-arriba .p-cabeza h1 { font-weight: 900; font-size: clamp(32px, 4.6vw, 58px); letter-spacing: -.035em; line-height: 1.02; }
+.pg-arriba .p-cabeza h1 em { font-style: italic; color: var(--red); }
+
+/* ─── Juegos: menú de categorías (como los filtros de la app) ─── */
+.jg-menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 0 auto 34px; }
+.jg-filtro {
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 99px;
+  border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-dim);
+  font: 600 14px var(--display); cursor: pointer;
+  transition: transform .18s var(--muelle), background-color .2s, border-color .2s, color .2s;
+}
+.jg-filtro i { width: 8px; height: 8px; border-radius: 50%; background: var(--g); box-shadow: 0 0 8px var(--g); }
+.jg-filtro b { font-size: 11.5px; font-weight: 700; padding: 1px 7px; border-radius: 99px; background: rgba(255,255,255,.06); color: var(--ink-faint); }
+.jg-filtro:hover { color: var(--ink); border-color: var(--line-2); transform: translateY(-1px); }
+.jg-filtro:active { transform: scale(.96); }
+.jg-filtro.on { color: var(--ink); background: color-mix(in srgb, var(--g) 13%, var(--surface)); border-color: color-mix(in srgb, var(--g) 55%, transparent); }
+.jg-filtro.on b { background: var(--g); color: var(--bg); }
+
+/* ─── Juegos: la cuadrícula ─── */
+.jg-rejilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1080px; margin: 0 auto; }
+.jg-tarjeta { width: 100%; padding: 0; text-align: left; color: var(--ink); font: inherit; cursor: pointer; }
+.jg-tarjeta .jc-titulo { display: block; font-size: 26px; }
+.jg-linea { display: block; color: var(--ink-dim); font-size: 13.5px; line-height: 1.45; margin-top: 7px; }
+.jg-ver {
+  display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--red);
+  opacity: 0; transform: translateY(6px); transition: opacity .2s var(--suave), transform .25s var(--muelle);
+}
+.jg-tarjeta:hover .jg-ver, .jg-tarjeta:focus-visible .jg-ver { opacity: 1; transform: none; }
+.jg-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.jg-tarjeta > .jg-chips { position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1; }
+.jg-chips span {
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 4px 9px; border-radius: 99px;
+  background: rgba(10,10,15,.72); border: 1px solid color-mix(in srgb, var(--g) 45%, transparent);
+  color: var(--g); backdrop-filter: blur(4px);
+}
+.jg-oculto { display: none; }
+.jg-entra { animation: jg-entra .55s var(--muelle) var(--jg-d, 0s) both; }
+@keyframes jg-entra { from { opacity: 0; transform: translateY(16px) scale(.96); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* ─── Juegos: la ficha (ventana de cristal con rebote, como las de la app) ─── */
+html.sin-scroll, html.sin-scroll body { overflow: hidden; }
+#jg-ficha {
+  position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; padding: 24px;
+  background: rgba(4,4,8,.55); backdrop-filter: blur(14px) saturate(140%);
+  animation: jg-fondo .32s ease both;
+}
+#jg-ficha[hidden] { display: none; }
+@keyframes jg-fondo { from { background: rgba(4,4,8,0); backdrop-filter: blur(0); } }
+.jg-ventana {
+  position: relative; width: min(1000px, 100%); max-height: calc(100vh - 48px); overflow: auto;
+  display: grid; grid-template-columns: 380px 1fr; gap: 28px; padding: 22px;
+  background: rgba(22,22,32,.82); backdrop-filter: blur(30px) saturate(170%);
+  border: 1px solid rgba(255,255,255,.09); border-radius: 20px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.07);
+  animation: jg-ventana .45s var(--muelle) both;
+}
+@keyframes jg-ventana { from { opacity: 0; transform: translateY(18px) scale(.94); filter: blur(10px); } }
+#jg-ficha.cerrando { animation: jg-fondo-sale .23s ease forwards; }
+#jg-ficha.cerrando .jg-ventana { animation: jg-ventana-sale .23s ease forwards; }
+@keyframes jg-fondo-sale { to { background: rgba(4,4,8,0); backdrop-filter: blur(0); } }
+@keyframes jg-ventana-sale { to { opacity: 0; transform: translateY(10px) scale(.96); filter: blur(8px); } }
+
+.jg-cerrar {
+  position: absolute; top: 14px; right: 14px; z-index: 2; width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--ink-dim); font-size: 16px;
+  transition: transform .18s var(--muelle), color .2s, border-color .2s;
+}
+.jg-cerrar:hover { color: var(--ink); border-color: var(--line-2); }
+.jg-cerrar:active { transform: scale(.92); }
+.jg-grande { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); aspect-ratio: 3 / 4; align-self: start; }
+.jg-grande img { width: 100%; height: 100%; object-fit: cover; }
+.jg-cambia { animation: jg-cambia .45s var(--suave2) both; }
+@keyframes jg-cambia { from { opacity: 0; transform: scale(1.06); filter: blur(6px); } }
+
+.jg-info { display: flex; flex-direction: column; gap: 14px; padding: 8px 8px 4px 0; min-width: 0; }
+.jg-info > * { animation: jg-hijo .6s var(--suave2) both; }
+.jg-info > :nth-child(2) { animation-delay: .05s; }
+.jg-info > :nth-child(3) { animation-delay: .1s; }
+.jg-info > :nth-child(4) { animation-delay: .15s; }
+.jg-info > :nth-child(5) { animation-delay: .2s; }
+.jg-info > :nth-child(n+6) { animation-delay: .25s; }
+@keyframes jg-hijo { from { opacity: 0; transform: translateY(14px) scale(.99); } }
+.jg-info .jc-titulo { font-size: clamp(30px, 4vw, 44px); }
+.jg-info p { color: var(--ink-dim); font-size: 15px; line-height: 1.6; }
+
+.jg-galeria { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.jg-mini {
+  position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; padding: 0;
+  border: 2px solid var(--line); background: var(--surface-2); cursor: pointer;
+  transition: transform .18s var(--muelle), border-color .2s;
+}
+.jg-mini img { width: 100%; height: 100%; object-fit: cover; }
+.jg-mini:hover { transform: translateY(-2px); border-color: var(--line-2); }
+.jg-mini.on { border-color: var(--red); }
+.jg-hueco { display: none; }
+.jg-mini.vacio { cursor: default; border-style: dashed; transform: none; }
+.jg-mini.vacio .jg-hueco { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 4px; color: var(--ink-faint); }
+.jg-mini.vacio .jg-hueco small { font-size: 10px; font-weight: 600; }
+
+.jg-puntos { display: flex; flex-direction: column; gap: 8px; }
+.jg-puntos li { position: relative; padding-left: 26px; color: var(--ink-dim); font-size: 14px; }
+.jg-puntos li::before {
+  content: ''; position: absolute; left: 0; top: 2px; width: 17px; height: 17px; border-radius: 6px;
+  background: var(--cyan-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+.jg-acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.jg-acciones .btn-primary { box-shadow: 0 6px 18px rgba(var(--red-rgb), .35); }
+.jg-nota { color: var(--ink-faint); font-size: 12.5px; }
+
+/* ─── Comunidad: contacto ─── */
+.cm-contacto { max-width: 820px; margin: 0 auto; }
+.cm-discord {
+  position: relative; overflow: hidden; display: flex; align-items: center; gap: 22px; padding: 30px;
+  border-radius: 18px; border: 1px solid rgba(88,101,242,.45);
+  background: radial-gradient(90% 140% at 0% 0%, rgba(88,101,242,.28), var(--surface) 70%);
+  transition: transform .18s var(--muelle), box-shadow .25s, border-color .2s;
+}
+.cm-discord:hover { transform: translateY(-2px); border-color: #5865f2; box-shadow: 0 14px 40px rgba(88,101,242,.25); }
+.cm-discord-ic { width: 64px; height: 64px; border-radius: 16px; flex: none; display: grid; place-items: center; background: #5865f2; box-shadow: 0 8px 24px rgba(88,101,242,.45); }
+.cm-discord-ic svg { width: 34px; height: 34px; }
+.cm-discord h2 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 900; letter-spacing: -.02em; }
+.cm-discord p { color: var(--ink-dim); font-size: 14.5px; margin-top: 4px; }
+.cm-discord .btn { margin-left: auto; background: #5865f2; border-color: #5865f2; color: #fff; box-shadow: 0 6px 18px rgba(88,101,242,.4); white-space: nowrap; }
+.cm-otros { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.cm-otro {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--line); color: var(--ink);
+  transition: transform .18s var(--muelle), border-color .2s;
+}
+.cm-otro:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--g) 45%, var(--line)); }
+.cm-otro b { display: block; font-size: 14.5px; }
+.cm-otro small { color: var(--ink-faint); font-size: 12.5px; }
+
+/* ─── Comunidad: novedades de la app (como la ventana «cosas nuevas» de la app) ─── */
+.nv-version {
+  display: inline-block; margin-bottom: 14px; padding: 5px 12px; border-radius: 99px;
+  background: var(--cyan-soft); border: 1px solid rgba(var(--cyan-rgb), .4); color: var(--cyan);
+  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+}
+.nv-rejilla { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1080px; margin: 0 auto; }
+.nv-cosa {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 16px;
+  border-radius: 14px; background: var(--surface); border: 1px solid var(--line);
+}
+.nv-cosa .ic-caja { width: 46px; height: 46px; border-radius: 13px; }
+.nv-cosa .ic-caja .ic { width: 22px; height: 22px; }
+.nv-cosa b { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
+.nv-cosa small { color: var(--ink-dim); font-size: 13px; line-height: 1.45; }
+.nv-cosa.reveal .ic-caja { transform: scale(.5) rotate(-12deg); }
+.nv-cosa.reveal.visible .ic-caja { transform: none; transition: transform .6s var(--muelle) calc(var(--retraso, 0s) + .2s), background-color .15s; }
+.nv-cosa:hover { border-color: color-mix(in srgb, var(--g) 45%, var(--line)); transform: translateY(-2px); }
+
+/* ─── Responsive ─── */
+@media (max-width: 960px) {
+  .jg-rejilla { grid-template-columns: repeat(2, 1fr); }
+  .nv-rejilla { grid-template-columns: repeat(2, 1fr); }
+  .jg-ventana { grid-template-columns: 1fr; }
+  .jg-grande { max-width: 300px; width: 100%; justify-self: center; }
+}
+@media (max-width: 640px) {
+  .pg-arriba { padding-top: 96px; }
+  .jg-rejilla { gap: 12px; }
+  .jg-tarjeta .jc-titulo { font-size: 19px; }
+  .jg-linea { display: none; }
+  .cm-discord { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .cm-discord .btn { margin-left: 0; }
+  .cm-otros { grid-template-columns: 1fr; }
+  #jg-ficha { padding: 10px; }
+  .jg-ventana { padding: 16px; gap: 18px; max-height: calc(100vh - 20px); }
+}

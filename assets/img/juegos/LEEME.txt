@@ -1,0 +1,11 @@
+IMÁGENES DE CADA JUEGO (para su ficha en la página Juegos)
+
+Crea una carpeta con el nombre del juego y mete hasta 4 imágenes:
+   01.jpg  02.jpg  03.jpg  04.jpg
+
+Nombres de las carpetas:
+   ballracing  octogol  poparena  dropclash  chessbattle  towerup  snakerun
+(Mundialito y Carreritas ya usan sus imágenes de siempre.)
+
+Ejemplo:  assets/img/juegos/ballracing/01.jpg
+Si falta alguna, la ficha enseña «Próximamente» en su hueco.
