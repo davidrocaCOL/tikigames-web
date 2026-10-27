@@ -1,6 +1,5 @@
 # Claves y códigos privados: nunca a Git
-cloudflare-*.txt
-github-recovery-codes.txt
+claves-privadas/
 
 # Ajustes locales de Claude
 .claude/
