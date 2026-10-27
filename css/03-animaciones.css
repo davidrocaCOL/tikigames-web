@@ -30,17 +30,26 @@
 .delay-4 { animation-delay: .2s; }
 .delay-5 { animation-delay: .25s; }
 
-/* ─── Scroll reveal ──────────────────────────── */
+/* ─── Aparecer al bajar y al subir (como la app: desenfocado → nítido, con rebote) ───
+   El JS (02-animaciones.js) pone .visible al entrar y la quita al salir de la pantalla;
+   .desde-arriba hace que entre bajando cuando se vuelve hacia arriba.
+   Al salir no hay transición (--retraso vuelve a 0 y no se ve nada raro). */
+:root { --suave2: cubic-bezier(.22,.8,.26,1); }
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .35s cubic-bezier(.4,0,.2,1), transform .35s cubic-bezier(.4,0,.2,1);
+  transform: translateY(34px) scale(.97);
+  filter: blur(8px);
+  transition: opacity .25s ease, transform .25s ease, filter .25s ease;
 }
+.reveal.desde-arriba { transform: translateY(-34px) scale(.97); }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  filter: none;
+  transition: opacity .6s var(--suave2) var(--retraso, 0s),
+              transform .75s var(--muelle) var(--retraso, 0s),
+              filter .6s var(--suave2) var(--retraso, 0s);
 }
-
 /* ─── Glitch ─────────────────────────────────── */
 .glitch { position: relative; }
 .glitch::before,

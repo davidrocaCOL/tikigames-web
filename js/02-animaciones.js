@@ -1,6 +1,7 @@
 function initParticles() {
 const canvas = document.getElementById('particles-canvas');
-if (!canvas) return;
+// Si el fondo de puntitos está apagado (como en la app), no se gasta nada en dibujarlo
+if (!canvas || getComputedStyle(canvas).display === 'none') return;
 const ctx = canvas.getContext('2d');
 function resize() {
 canvas.width = window.innerWidth;
@@ -47,15 +48,52 @@ requestAnimationFrame(draw);
 draw();
 }
 initParticles();
+// ─── Aparecer al bajar Y al subir (Ace, 27-oct-2026) ───
+// Cada .reveal entra cuando se ve y se «reinicia» cuando sale del todo de la pantalla,
+// así se vuelve a animar cada vez. Si salió por arriba, la próxima vez entra bajando
+// desde arriba (.desde-arriba); si salió por abajo, entra subiendo.
+// Los hermanos entran uno detrás de otro (--retraso). Al recargar, todo se anima de nuevo.
+const revelables = document.querySelectorAll('.reveal');
+revelables.forEach(el => {
+const hermanos = [...el.parentElement.children].filter(h => h.classList.contains('reveal'));
+const i = hermanos.indexOf(el);
+if (i > 0) el.style.setProperty('--retraso', (Math.min(i, 9) * 0.07).toFixed(2) + 's');
+});
+function contarHasta(el) {
+const fin = parseInt(el.dataset.cuenta, 10);
+const t0 = performance.now();
+const paso = (t) => {
+const k = Math.min((t - t0) / 900, 1);
+el.textContent = Math.round(fin * (1 - Math.pow(1 - k, 3)));
+if (k < 1) requestAnimationFrame(paso);
+};
+requestAnimationFrame(paso);
+}
+// Ace: las animaciones van SIEMPRE, aunque Windows tenga «reducir movimiento»
+if (!('IntersectionObserver' in window)) {
+revelables.forEach(el => el.classList.add('visible'));
+} else {
 const revealObserver = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-revealObserver.unobserve(entry.target);
+const el = entry.target;
+if (entry.isIntersecting && entry.intersectionRatio > 0.08) {
+if (!el.classList.contains('visible')) {
+el.classList.add('visible');
+el.querySelectorAll('[data-cuenta]').forEach(contarHasta);
+// Cuando termina de entrar queda «asentado»: el pasar el ratón vuelve a ser rápido
+clearTimeout(el._asentar);
+el._asentar = setTimeout(() => el.classList.add('asentado'), 900 + (parseFloat(getComputedStyle(el).getPropertyValue('--retraso')) || 0) * 1000);
+}
+} else if (!entry.isIntersecting) {
+// Fuera de la pantalla: se prepara para entrar por el lado por donde volverá
+el.classList.toggle('desde-arriba', entry.boundingClientRect.bottom <= 0);
+clearTimeout(el._asentar);
+el.classList.remove('visible', 'asentado');
 }
 });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}, { threshold: [0, 0.08, 0.2] });
+revelables.forEach(el => revealObserver.observe(el));
+}
 function animateCounter(el) {
 const target = parseInt(el.dataset.target);
 const suffix = el.dataset.suffix || '';
