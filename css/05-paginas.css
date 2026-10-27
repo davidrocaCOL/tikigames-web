@@ -48,12 +48,12 @@
 
 /* ─── Juegos: la ficha (ventana de cristal con rebote, como las de la app) ─── */
 html.sin-scroll, html.sin-scroll body { overflow: hidden; }
-#jg-ficha {
+.ficha-capa {
   position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; padding: 24px;
   background: rgba(4,4,8,.55); backdrop-filter: blur(14px) saturate(140%);
   animation: jg-fondo .32s ease both;
 }
-#jg-ficha[hidden] { display: none; }
+.ficha-capa[hidden] { display: none; }
 @keyframes jg-fondo { from { background: rgba(4,4,8,0); backdrop-filter: blur(0); } }
 .jg-ventana {
   position: relative; width: min(1000px, 100%); max-height: calc(100vh - 48px); overflow: auto;
@@ -64,8 +64,8 @@ html.sin-scroll, html.sin-scroll body { overflow: hidden; }
   animation: jg-ventana .45s var(--muelle) both;
 }
 @keyframes jg-ventana { from { opacity: 0; transform: translateY(18px) scale(.94); filter: blur(10px); } }
-#jg-ficha.cerrando { animation: jg-fondo-sale .23s ease forwards; }
-#jg-ficha.cerrando .jg-ventana { animation: jg-ventana-sale .23s ease forwards; }
+.ficha-capa.cerrando { animation: jg-fondo-sale .23s ease forwards; }
+.ficha-capa.cerrando .jg-ventana { animation: jg-ventana-sale .23s ease forwards; }
 @keyframes jg-fondo-sale { to { background: rgba(4,4,8,0); backdrop-filter: blur(0); } }
 @keyframes jg-ventana-sale { to { opacity: 0; transform: translateY(10px) scale(.96); filter: blur(8px); } }
 
@@ -115,6 +115,34 @@ html.sin-scroll, html.sin-scroll body { overflow: hidden; }
 .jg-acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
 .jg-acciones .btn-primary { box-shadow: 0 6px 18px rgba(var(--red-rgb), .35); }
 .jg-nota { color: var(--ink-faint); font-size: 12.5px; }
+
+/* ─── Portada: ventana de cada función de «Todo en uno» (recortes de los menús) ─── */
+.fn-ventana { grid-template-columns: 1fr; width: min(1100px, 100%); gap: 18px; padding: 24px; }
+.fn-ventana > * { animation: jg-hijo .6s var(--suave2) both; }
+.fn-ventana > :nth-child(3) { animation-delay: .06s; }
+.fn-ventana > :nth-child(4) { animation-delay: .12s; }
+.fn-ventana > :nth-child(5) { animation-delay: .18s; }
+.fn-ventana > :nth-child(n+6) { animation-delay: .24s; }
+.fn-cabeza { display: flex; align-items: center; gap: 16px; padding-right: 44px; }
+.fn-ic { width: 60px; height: 60px; border-radius: 16px; }
+.fn-ic .ic { width: 30px; height: 30px; }
+.fn-cabeza h2 { font-size: clamp(26px, 3.4vw, 40px); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; }
+.fn-cabeza p { color: var(--ink-dim); font-size: 15.5px; margin-top: 4px; }
+.fn-vista { margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); }
+.fn-vista img { width: 100%; max-height: 44vh; object-fit: contain; object-position: top center; background: var(--bg); }
+.fn-vista figcaption { padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--ink-dim); border-top: 1px solid var(--line); }
+.fn-minis { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.fn-mini {
+  flex: 0 0 160px; display: flex; flex-direction: column; gap: 6px; padding: 6px; border-radius: 12px;
+  border: 2px solid var(--line); background: var(--surface-2); color: var(--ink-dim); font: 600 12px var(--display); text-align: left; cursor: pointer;
+  transition: transform .18s var(--muelle), border-color .2s, color .2s;
+}
+.fn-mini img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; border-radius: 7px; }
+.fn-mini:hover { transform: translateY(-2px); color: var(--ink); }
+.fn-mini.on { border-color: var(--g); color: var(--ink); }
+.fn-puntos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; }
+.fn-puntos li::before { background-color: color-mix(in srgb, var(--g) 16%, transparent); }
+.fn-ventana .jg-acciones { align-items: center; }
 
 /* ─── Comunidad: contacto ─── */
 .cm-contacto { max-width: 820px; margin: 0 auto; }
@@ -167,6 +195,9 @@ html.sin-scroll, html.sin-scroll body { overflow: hidden; }
   .jg-grande { max-width: 300px; width: 100%; justify-self: center; }
 }
 @media (max-width: 640px) {
+  .fn-puntos { grid-template-columns: 1fr; }
+  .fn-cabeza { padding-right: 36px; }
+  .fn-ic { width: 48px; height: 48px; }
   .pg-arriba { padding-top: 96px; }
   .jg-rejilla { gap: 12px; }
   .jg-tarjeta .jc-titulo { font-size: 19px; }
@@ -174,6 +205,6 @@ html.sin-scroll, html.sin-scroll body { overflow: hidden; }
   .cm-discord { flex-direction: column; align-items: flex-start; padding: 24px; }
   .cm-discord .btn { margin-left: 0; }
   .cm-otros { grid-template-columns: 1fr; }
-  #jg-ficha { padding: 10px; }
+  .ficha-capa { padding: 10px; }
   .jg-ventana { padding: 16px; gap: 18px; max-height: calc(100vh - 20px); }
 }
