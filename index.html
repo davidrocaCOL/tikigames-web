@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TikiGames — Juega. Compite. Gana en TikTok</title>
-  <meta name="description" content="Juegos interactivos para streamers y espectadores de TikTok Live." />
+  <title>TikiGames — La app todo en uno para TikTok Live</title>
+  <meta name="description" content="Juegos, overlays, alertas, escena y Stream Deck para tu TikTok Live, en una sola app para Windows." />
     <link rel="stylesheet" href="css/00-base.css?v=17" />
   <link rel="stylesheet" href="css/01-menu.css?v=17" />
   <link rel="stylesheet" href="css/02-componentes.css?v=17" />
   <link rel="stylesheet" href="css/03-animaciones.css?v=17" />
+  <link rel="stylesheet" href="css/04-portada.css?v=17" />
   <link rel="icon" href="favicon.ico?v=17" sizes="any" />
   <link rel="icon" type="image/png" href="assets/img/logo/favicon.png?v=17" />
   <link rel="apple-touch-icon" href="assets/img/logo/apple-touch-icon.png?v=17" />
@@ -52,162 +53,148 @@
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" style="position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;padding-top:70px;">
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,0,80,0.15) 0%,transparent 50%,rgba(0,240,255,0.1) 100%);z-index:1;"></div>
-  <div style="position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--bg-primary),transparent);z-index:2;"></div>
-
-  <!-- Hero image carousel — z-index:3, detrás del contenido -->
-  <div class="hero-carousel-wrap" style="position:absolute;right:0;top:0;width:58%;height:100vh;z-index:3;">
-    <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg-primary) 0%, rgba(10,10,15,0.65) 25%, transparent 60%);z-index:5;pointer-events:none;"></div>
-    <div style="position:absolute;top:0;left:0;right:0;height:260px;background:linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);z-index:5;pointer-events:none;"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:240px;background:linear-gradient(to top, var(--bg-primary) 0%, transparent 100%);z-index:5;pointer-events:none;"></div>
-    <div style="position:absolute;top:0;right:0;bottom:0;width:120px;background:linear-gradient(to left, var(--bg-primary) 0%, transparent 100%);z-index:5;pointer-events:none;"></div>
-
-    <div class="hero-carousel-track" style="position:absolute;inset:0;z-index:1;pointer-events:none;">
-      <div class="hero-slide active" style="position:absolute;inset:0;opacity:1;transition:opacity 0.7s ease;overflow:hidden;pointer-events:none;">
-        <img src="assets/img/banners/gamer_hero.png" alt="" style="position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(35px) brightness(0.55) saturate(1.2);transform:scale(1.1);" />
-        <img src="assets/img/banners/gamer_hero.png" alt="Streamer jugando" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;" />
+<!-- ARRIBA: qué es TikiGames y descarga -->
+<section class="p-arriba">
+  <div class="portada-ancho">
+    <div>
+      <span class="p-pastilla fade-in-up delay-1"><i></i>La app todo en uno para TikTok Live</span>
+      <h1 class="p-titulo fade-in-up delay-2">TU LIVE,<br><em>AL SIGUIENTE NIVEL.</em></h1>
+      <p class="p-sub fade-in-up delay-3"><strong>Juegos, overlays, alertas, escena y Stream Deck</strong> en una sola app para Windows. Tu comunidad juega y participa con sus regalos, taps y comentarios.</p>
+      <div class="p-acciones fade-in-up delay-4">
+        <a class="btn btn-primary btn-lg btn-descargar p-boton-grande" href="https://github.com/davidrocaCOL/tikigames/releases/latest/download/TikiGames-Instalador.exe"><svg class="icono-windows" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span>Descargar gratis</span></a>
+        <div class="p-nota"><b>Para Windows 10 y 11</b><br>Se actualiza sola</div>
       </div>
-      <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;overflow:hidden;pointer-events:none;">
-        <img src="assets/img/banners/hero_slide_prueba.jpg" alt="" style="position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(35px) brightness(0.55) saturate(1.2);transform:scale(1.1);" />
-        <img src="assets/img/banners/hero_slide_prueba.jpg" alt="Prueba de un día" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;" />
-      </div>
-      <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;overflow:hidden;pointer-events:none;">
-        <img src="assets/img/banners/hero_slide_creador.jpg" alt="" style="position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(35px) brightness(0.55) saturate(1.2);transform:scale(1.1);" />
-        <img src="assets/img/banners/hero_slide_creador.jpg" alt="Sé un creador" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;" />
-      </div>
-      <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;overflow:hidden;pointer-events:none;">
-        <img src="assets/img/banners/hero_slide_carreritas.jpg" alt="" style="position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(35px) brightness(0.55) saturate(1.2);transform:scale(1.1);" />
-        <img src="assets/img/banners/hero_slide_carreritas.jpg" alt="Carreritas — Próximamente" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;" />
+      <div class="p-chips fade-in-up delay-5">
+        <span><b>9</b> juegos</span><span>Overlays</span><span>Escena</span><span>Stream Deck</span><span>Chat con voz</span><span>Estadísticas</span>
       </div>
     </div>
-
-  </div>
-
-  <!-- Controles del carrusel — fuera del wrap, z-index:20 para quedar SIEMPRE encima del contenido -->
-  <div style="position:absolute;bottom:64px;right:29%;transform:translateX(50%);z-index:20;display:flex;align-items:center;gap:14px;pointer-events:auto;">
-    <button type="button" class="hero-carousel-arrow" data-hero-arrow="-1" aria-label="Anterior">‹</button>
-    <div style="display:flex;gap:8px;">
-      <span class="hero-dot active" onclick="heroCarouselGoTo(0)"><i class="hero-dot-fill"></i></span>
-      <span class="hero-dot" onclick="heroCarouselGoTo(1)"><i class="hero-dot-fill"></i></span>
-      <span class="hero-dot" onclick="heroCarouselGoTo(2)"><i class="hero-dot-fill"></i></span>
-      <span class="hero-dot" onclick="heroCarouselGoTo(3)"><i class="hero-dot-fill"></i></span>
+    <div class="p-abanico fade-in-up delay-3" aria-hidden="true">
+      <img src="assets/img/portadas/portada-mundialito.jpg" alt="" width="600" height="800" />
+      <img src="assets/img/portadas/portada-ballracing.jpg" alt="" width="600" height="800" />
+      <img src="assets/img/portadas/portada-chessbattle.jpg" alt="" width="600" height="800" />
     </div>
-    <button type="button" class="hero-carousel-arrow" data-hero-arrow="1" aria-label="Siguiente">›</button>
   </div>
+</section>
 
-  <!-- Contenido — z-index:10, siempre encima de la imagen -->
-  <div style="position:relative;z-index:10;max-width:1400px;margin:0 auto;padding:80px 40px;width:100%;pointer-events:none;">
-    <div style="max-width:min(580px, 50%);pointer-events:auto;">
-
-      <h1 id="hero-h1" class="fade-in-up delay-2" style="font-family:'Orbitron',monospace;font-size:clamp(32px,5.5vw,80px);font-weight:900;line-height:1.0;margin-bottom:12px;letter-spacing:-1px;">
-        JUEGA. COMPITE. GANA.
-      </h1>
-
-      <h2 id="hero-h2" class="fade-in-up delay-2" style="font-family:'Orbitron',monospace;font-size:clamp(22px,3.5vw,54px);font-weight:900;color:var(--cyan);text-shadow:0 0 30px rgba(0,240,255,0.6);margin-bottom:24px;animation:neon-pulse 2.5s ease infinite;">
-        EN TIKTOK LIVE.
-      </h2>
-
-      <p class="fade-in-up delay-3" style="font-size:clamp(15px,1.3vw,18px);color:var(--text-gray);max-width:480px;line-height:1.7;margin-bottom:36px;">
-        <span id="hero-sub">Juegos interactivos para streamers y espectadores.</span><br>
-        <strong style="color:white;" id="hero-sub2">Tu comunidad decide la partida.</strong>
-      </p>
-
-      <div class="fade-in-up delay-4" style="display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:11;">
-        <a href="pages/catalogo.html" class="btn btn-primary btn-lg" id="btn-explorar">Explorar Juegos</a>
-        <a href="pages/comunidad.html" class="btn btn-outline btn-lg" id="btn-comunidad">Unirse a la comunidad</a>
-      </div>
-
-      <div class="stats-strip fade-in-up delay-5" style="margin-top:56px;">
-        <div class="stat-item">
-          <div class="stat-number" data-target="15" data-suffix="">0</div>
-          <div class="stat-label" id="stat-jugadores">Jugadores activos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-target="7" data-suffix="">0</div>
-          <div class="stat-label" id="stat-streams">Streams en vivo</div>
-        </div>
+<!-- JUEGOS: los 9 que vienen dentro de la app -->
+<section class="p-seccion" id="juegos">
+  <div class="portada-ancho">
+    <div class="p-cabeza reveal">
+      <small>Juegos</small>
+      <h2>9 juegos <em>dentro de la app</em></h2>
+      <p>Tu comunidad decide la partida con sus regalos, taps y follows.</p>
+    </div>
+    <div class="p-juegos">
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-ballracing.jpg" alt="Ball Racing" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Ball Racing</h3><p>Carrera de canicas con ambiente de F1. Los regalos dan poderes.</p></div>
+      </a>
+      <a class="p-juego reveal" href="pages/mundialito.html">
+        <img src="assets/img/portadas/portada-mundialito.jpg" alt="Mundialito" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Mundialito</h3><p>Torneo de fútbol por países: la audiencia apoya a su selección.</p></div>
+      </a>
+      <a class="p-juego reveal" href="pages/carreritas.html">
+        <img src="assets/img/portadas/portada-carreritas.jpg" alt="Carreritas" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Carreritas</h3><p>Carrera por países con turbos, multiplicadores y tarjetas.</p></div>
+      </a>
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-octogol.jpg" alt="Octogol" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Octogol</h3><p>Ocho países en un octágono. Los regalos disparan balones y meteoritos.</p></div>
+      </a>
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-poparena.jpg" alt="Pop Arena" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Pop Arena</h3><p>Rojo contra azul: la pelota revienta bolitas para sumar puntos.</p></div>
+      </a>
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-dropclash.jpg" alt="Drop Clash" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Drop Clash</h3><p>Lluvia de fichas por países. Gana el que más puntos suma.</p></div>
+      </a>
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-chessbattle.jpg" alt="Chess Battle" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Chess Battle</h3><p>Ajedrez 3D: cada regalo invoca una ficha, del peón a la reina.</p></div>
+      </a>
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-towerup.jpg" alt="Tower Up" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Tower Up</h3><p>Dos torres, rojo contra azul. Los regalos grandes atacan al rival.</p></div>
+      </a>
+      <a class="p-juego reveal" href="#empezar">
+        <img src="assets/img/portadas/portada-snakerun.jpg" alt="Snake Run" loading="lazy" width="600" height="800" />
+        <div class="p-juego-texto"><h3>Snake Run</h3><p>Runner 3D: héroes empujan a la meta y villanos hacia atrás.</p></div>
+      </a>
+      <div class="p-juego p-juego-todos reveal">
+        <strong>9</strong>
+        <span>Todos vienen en la app TikiGames</span>
+        <a class="btn btn-primary btn-descargar" href="https://github.com/davidrocaCOL/tikigames/releases/latest/download/TikiGames-Instalador.exe"><svg class="icono-windows" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span>Descargar</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- JUEGO DESTACADO — Mundialito Torneo -->
-<section class="section" style="position:relative;z-index:1;">
-  <div class="section-header reveal">
-    <h2 class="section-title" id="sec-destacado">Juego Destacado</h2>
-    <a href="pages/catalogo.html" class="section-link" id="sec-catalogo">Ver catálogo →</a>
-  </div>
-
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
-    <a href="pages/mundialito.html" style="position:relative;overflow:hidden;display:block;">
-      <img src="assets/img/juegos/mundialito_torneo.jpg" alt="Mundialito Torneo" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:var(--transition);" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      <div style="position:absolute;top:16px;left:16px;">
-        <span class="badge badge-red">NUEVO</span>
+<!-- TODO EN UNO: lo demás que trae la app -->
+<section class="p-seccion" id="todo-en-uno">
+  <div class="portada-ancho">
+    <div class="p-cabeza reveal">
+      <small>Todo en uno</small>
+      <h2>Mucho más que <em>juegos</em></h2>
+      <p>Todo lo que tu live necesita, en una sola app.</p>
+    </div>
+    <div class="p-funciones">
+      <div class="p-funcion reveal" style="--c:#00f0ff">
+        <div class="p-captura" data-captura="overlays"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 21h10M12 17v4"/><path d="M7 9h5M7 12h8"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Overlays</h3><p>Alertas de regalo, top donadores, top tap-taps, metas, reloj de subathon y chat en pantalla.</p></div>
       </div>
-    </a>
-    <div style="padding:40px 40px 40px 0;">
-      <span class="badge badge-cyan" style="margin-bottom:16px;display:inline-block;" id="badge-deportivo">DEPORTIVO</span>
-      <h3 style="font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;letter-spacing:1px;margin-bottom:12px;">MUNDIALITO TORNEO</h3>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-        <span class="stars">★★★★✩</span>
-        <span style="color:var(--text-dim);font-size:13px;">4.5 · Nuevo</span>
+      <div class="p-funcion reveal" style="--c:#c084fc">
+        <div class="p-captura" data-captura="escena"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Escena todo en uno</h3><p>Arma tu escena del live con plantillas: juego, overlays y alertas en un solo sitio.</p></div>
       </div>
-      <p id="game-desc" style="color:var(--text-gray);line-height:1.8;margin-bottom:24px;">Experiencia interactiva para TikTok Live. Tu audiencia elige países, apoya a sus favoritos y los impulsa hasta coronar al campeón. Incluye clasificación, goleadores, multiplicadores y personalización.</p>
-      <div style="display:flex;flex-direction:column;gap:14px;max-width:340px;">
-        <a href="pages/mundialito.html" class="btn btn-primary btn-lg" id="btn-comprar" style="width:100%;justify-content:center;font-size:19px;padding:18px 28px;box-shadow:0 0 28px rgba(255,0,80,0.35);">
-          Juega Ya
-        </a>
+      <div class="p-funcion reveal" style="--c:#a78bfa">
+        <div class="p-captura" data-captura="deck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.8"/><circle cx="15.5" cy="8.5" r="1.8"/><circle cx="8.5" cy="15.5" r="1.8"/><circle cx="15.5" cy="15.5" r="1.8"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Stream Deck</h3><p>Tus botones a mano para lanzar sonidos, videos y efectos con un toque.</p></div>
+      </div>
+      <div class="p-funcion reveal" style="--c:#3ddc97">
+        <div class="p-captura" data-captura="voz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M9 10v4M12 8.5v7M15 10v4"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Chat con voz</h3><p>El chat se lee en voz alta, con palabras bloqueadas para que nada se cuele.</p></div>
+      </div>
+      <div class="p-funcion reveal" style="--c:#ffc13b">
+        <div class="p-captura" data-captura="alertas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Alertas de sonido y video</h3><p>Cada regalo dispara el sonido, la imagen o el video que tú elijas.</p></div>
+      </div>
+      <div class="p-funcion reveal" style="--c:#ff8a3d">
+        <div class="p-captura" data-captura="animaciones"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 5.3L20 9l-4.4 3.8L17 19l-5-3-5 3 1.4-6.2L4 9l5.8-.7z"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Animaciones</h3><p>Efectos en pantalla que celebran lo que pasa en tu live.</p></div>
+      </div>
+      <div class="p-funcion reveal" style="--c:#3ddc97">
+        <div class="p-captura" data-captura="estadisticas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Estadísticas</h3><p>Cómo te va cada live y quién más te apoya, para premiarlo.</p></div>
+      </div>
+      <div class="p-funcion reveal" style="--c:#ff2d55">
+        <div class="p-captura" data-captura="envivo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M4.9 4.9a10 10 0 0 0 0 14.2M19.1 4.9a10 10 0 0 1 0 14.2"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>En vivo ahora</h3><p>Los lives que más se ven en este momento, por región, para inspirarte.</p></div>
+      </div>
+      <div class="p-funcion reveal" style="--c:#00f0ff">
+        <div class="p-captura" data-captura="conexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></div>
+        <div class="p-funcion-texto"><h3><i></i>Conexión con TikTok</h3><p>Se conecta directo a tu TikTok Live. Si ya usas TikFinity, también funciona.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- JUEGO DESTACADO — Carreritas -->
-<section class="section reveal" style="position:relative;z-index:1;padding-top:0;">
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
-    <a href="pages/carreritas.html" style="position:relative;overflow:hidden;display:block;">
-      <img src="assets/img/juegos/carreritas_1_portada.jpg" alt="Carreritas" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:var(--transition);" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      <div style="position:absolute;top:16px;left:16px;">
-        <span class="badge badge-red">NUEVO</span>
-      </div>
-    </a>
-    <div style="padding:40px 40px 40px 0;">
-      <span class="badge badge-cyan" style="margin-bottom:16px;display:inline-block;">DEPORTIVO</span>
-      <h3 style="font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;letter-spacing:1px;margin-bottom:12px;">CARRERITAS</h3>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-        <span class="stars">★★★★★</span>
-        <span style="color:var(--text-dim);font-size:13px;">4.7 · Nuevo</span>
-      </div>
-      <p style="color:var(--text-gray);line-height:1.8;margin-bottom:24px;">Carrera mundial donde cada país compite por llegar primero a la meta. Tu comunidad impulsa a su selección mediante regalos de TikTok que activan poderes y multiplicadores, haciendo cada carrera más rápida, estratégica y emocionante.</p>
-      <div style="display:flex;flex-direction:column;gap:14px;max-width:340px;">
-        <a href="pages/carreritas.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;font-size:19px;padding:18px 28px;box-shadow:0 0 28px rgba(255,0,80,0.35);">
-          Juega Ya
-        </a>
-      </div>
+<!-- CÓMO EMPEZAR: 3 pasos y descarga -->
+<section class="p-seccion" id="empezar">
+  <div class="portada-ancho">
+    <div class="p-cabeza reveal">
+      <small>Cómo empezar</small>
+      <h2>Listo en <em>3 pasos</em></h2>
     </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BANNER COMUNIDAD -->
-<section class="section reveal" style="position:relative;z-index:1;">
-  <div style="background:linear-gradient(135deg,rgba(255,0,80,0.12),rgba(123,47,255,0.12));border:1px solid rgba(255,0,80,0.25);border-radius:var(--radius-lg);padding:60px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden;">
-    <div style="position:relative;z-index:1;">
-      <div style="color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:2px;font-size:14px;text-transform:uppercase;margin-bottom:8px;" id="banner-label">Comunidad TikiGames</div>
-      <h2 id="banner-titulo" style="font-size:clamp(28px,4vw,48px);margin-bottom:12px;">TU JUEGO.<br>TU LIVE.<br><span style="color:var(--red);" id="banner-t3">TU COMUNIDAD.</span></h2>
-      <p id="banner-desc" style="color:var(--text-gray);max-width:400px;font-size:16px;">Conecta con miles de streamers y espectadores. Juega en tiempo real con tu comunidad de TikTok.</p>
+    <div class="p-pasos">
+      <div class="p-paso reveal"><b>1</b><h3>Descarga</h3><p>La app para Windows, gratis.</p></div>
+      <div class="p-paso reveal"><b>2</b><h3>Entra</h3><p>Crea tu cuenta TikiGames.</p></div>
+      <div class="p-paso reveal"><b>3</b><h3>Conecta tu live</h3><p>Elige un juego o tus overlays y a jugar.</p></div>
     </div>
-    <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
-      <div style="display:flex;gap:32px;margin-bottom:8px;">
-        <div>
-          <div style="font-family:'Orbitron',monospace;font-size:24px;color:var(--cyan);">1+</div>
-          <div style="color:var(--text-dim);font-size:13px;" id="banner-stat1">Juego disponible</div>
-        </div>
-      </div>
-      <a href="pages/comunidad.html" class="btn btn-primary btn-lg" id="btn-unirse">Unirse ahora</a>
+    <div class="p-final reveal">
+      <h3>Empieza gratis</h3>
+      <p>Los planes se eligen dentro de la app.</p>
+      <a class="btn btn-primary btn-lg btn-descargar p-boton-grande" href="https://github.com/davidrocaCOL/tikigames/releases/latest/download/TikiGames-Instalador.exe"><svg class="icono-windows" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span>Descargar TikiGames</span></a>
     </div>
   </div>
 </section>
@@ -274,44 +261,5 @@
 <script src="js/02-animaciones.js?v=17"></script>
 <script src="js/03-interfaz.js?v=17"></script>
 <script src="js/04-idioma.js?v=17"></script>
-<script>
-// ─── Carrusel del hero (autoplay + controles) ──
-let heroSlideIndex = 0;
-let heroCarouselTimer = null;
-const heroSlides = document.querySelectorAll('.hero-slide');
-const heroDots   = document.querySelectorAll('.hero-dot');
-
-function heroCarouselRender() {
-  heroSlides.forEach((s, i) => { s.style.opacity = i === heroSlideIndex ? '1' : '0'; s.classList.toggle('active', i === heroSlideIndex); });
-  heroDots.forEach((d, i) => d.classList.toggle('active', i === heroSlideIndex));
-}
-function heroCarouselGoTo(i) {
-  heroSlideIndex = i;
-  heroCarouselRender();
-  heroCarouselRestart();
-}
-function heroCarouselMove(dir) {
-  heroSlideIndex = (heroSlideIndex + dir + heroSlides.length) % heroSlides.length;
-  heroCarouselRender();
-  heroCarouselRestart();
-}
-function heroCarouselRestart() {
-  clearInterval(heroCarouselTimer);
-  heroCarouselTimer = setInterval(() => heroCarouselMove(1), 6000);
-}
-window.heroCarouselGoTo = heroCarouselGoTo;
-window.heroCarouselMove = heroCarouselMove;
-if (heroSlides.length) heroCarouselRestart();
-
-// Refuerzo: delegación de eventos en document — funciona aunque el botón se re-renderice
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('[data-hero-arrow]');
-  if (!btn) return;
-  e.preventDefault();
-  e.stopPropagation();
-  heroCarouselMove(parseInt(btn.getAttribute('data-hero-arrow'), 10));
-});
-
-</script>
 </body>
 </html>

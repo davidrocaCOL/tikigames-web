@@ -1,0 +1,170 @@
+/* ============================================
+   TIKIGAMES - PORTADA
+   Arriba (presentación), juegos, todo en uno, 3 pasos
+   ============================================ */
+
+.portada-ancho { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+
+/* ─── Arriba ─────────────────────────────────── */
+.p-arriba {
+  position: relative; min-height: 100vh; display: flex; align-items: center;
+  padding: 110px 0 60px; overflow: hidden;
+}
+.p-arriba::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 80% 40%, rgba(255,0,80,0.18), transparent 70%),
+    radial-gradient(50% 45% at 15% 70%, rgba(0,240,255,0.10), transparent 70%);
+}
+.p-arriba .portada-ancho { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+
+.p-pastilla {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+  background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.3);
+  color: var(--cyan); font-family: 'Rajdhani', sans-serif; font-weight: 700;
+  font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.p-pastilla i { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 10px var(--red); animation: p-latido 1.6s ease infinite; }
+@keyframes p-latido { 50% { opacity: .35; } }
+
+.p-titulo {
+  font-family: 'Orbitron', monospace; font-weight: 900; line-height: 1.02;
+  font-size: clamp(36px, 5.6vw, 76px); letter-spacing: -1px; margin-bottom: 20px;
+}
+.p-titulo em { font-style: normal; color: var(--red); text-shadow: 0 0 30px rgba(255,0,80,0.5); }
+.p-sub { color: var(--text-gray); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; max-width: 520px; margin-bottom: 32px; }
+.p-sub strong { color: var(--text-white); }
+
+.p-acciones { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.p-boton-grande { font-size: 19px; padding: 18px 30px; box-shadow: 0 0 30px rgba(255,0,80,0.4); }
+.p-boton-grande .icono-windows { width: 20px; height: 20px; }
+.p-nota { color: var(--text-dim); font-size: 13px; line-height: 1.5; }
+.p-nota b { color: var(--text-gray); font-weight: 600; }
+
+/* Chips de lo que trae la app (sustituyen a los números inventados) */
+.p-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
+.p-chips span {
+  padding: 7px 13px; border-radius: 999px; font-size: 13px; font-weight: 500;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-gray);
+}
+.p-chips span b { color: var(--text-white); font-weight: 600; }
+
+/* Abanico de portadas */
+.p-abanico { position: relative; height: min(560px, 62vh); }
+.p-abanico img {
+  position: absolute; top: 50%; left: 50%; width: 46%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: 16px; border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  transition: transform var(--transition-slow);
+}
+.p-abanico img:nth-child(1) { transform: translate(-115%, -48%) rotate(-12deg); z-index: 1; }
+.p-abanico img:nth-child(2) { transform: translate(-50%, -54%) rotate(0deg) scale(1.08); z-index: 3; box-shadow: 0 30px 70px rgba(0,0,0,0.7), 0 0 50px rgba(255,0,80,0.25); }
+.p-abanico img:nth-child(3) { transform: translate(15%, -48%) rotate(12deg); z-index: 2; }
+.p-abanico:hover img:nth-child(1) { transform: translate(-125%, -50%) rotate(-15deg); }
+.p-abanico:hover img:nth-child(3) { transform: translate(25%, -50%) rotate(15deg); }
+
+/* ─── Títulos de sección ─────────────────────── */
+.p-seccion { padding: 90px 0; position: relative; }
+.p-cabeza { text-align: center; max-width: 720px; margin: 0 auto 44px; }
+.p-cabeza small {
+  display: block; color: var(--cyan); font-family: 'Rajdhani', sans-serif; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; font-size: 14px; margin-bottom: 8px;
+}
+.p-cabeza h2 { font-family: 'Orbitron', monospace; font-weight: 900; font-size: clamp(26px, 3.4vw, 44px); line-height: 1.1; }
+.p-cabeza h2 em { font-style: normal; color: var(--red); }
+.p-cabeza p { color: var(--text-gray); margin-top: 12px; font-size: 16px; }
+
+/* ─── Juegos ─────────────────────────────────── */
+.p-juegos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.p-juego {
+  position: relative; display: block; border-radius: 14px; overflow: hidden;
+  aspect-ratio: 3 / 4; background: var(--bg-card); border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.p-juego img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+.p-juego::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,10,15,0.96) 0%, rgba(10,10,15,0.55) 38%, transparent 62%);
+}
+.p-juego-texto { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px; z-index: 1; }
+.p-juego-texto h3 { font-family: 'Rajdhani', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: .5px; line-height: 1.1; }
+.p-juego-texto p { color: var(--text-gray); font-size: 12.5px; line-height: 1.45; margin-top: 4px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.p-juego:hover { transform: translateY(-6px); border-color: rgba(255,0,80,0.5); box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 24px rgba(255,0,80,0.2); }
+.p-juego:hover img { transform: scale(1.06); }
+
+/* Tarjeta final de la cuadrícula: «todos vienen en la app» */
+.p-juego-todos {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  text-align: center; padding: 18px;
+  background: linear-gradient(160deg, rgba(255,0,80,0.16), rgba(0,240,255,0.08));
+  border: 1px dashed rgba(255,255,255,0.18);
+}
+.p-juego-todos::after { display: none; }
+.p-juego-todos strong { font-family: 'Orbitron', monospace; font-size: 40px; color: var(--cyan); line-height: 1; }
+.p-juego-todos span { color: var(--text-gray); font-size: 14px; line-height: 1.4; }
+.p-juego-todos .btn { font-size: 13px; padding: 10px 14px; }
+
+/* ─── Todo en uno ────────────────────────────── */
+.p-funciones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.p-funcion {
+  --c: var(--cyan);
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.p-funcion:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--c) 55%, transparent); box-shadow: 0 0 28px color-mix(in srgb, var(--c) 18%, transparent); }
+/* Hueco de la captura: hasta que llegue la captura real, un fondo con el icono grande */
+.p-captura {
+  position: relative; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(70% 90% at 50% 100%, color-mix(in srgb, var(--c) 30%, transparent), transparent 70%),
+    linear-gradient(180deg, #161626, #0f0f1a);
+  border-bottom: 1px solid var(--border);
+}
+.p-captura img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.p-captura svg { width: 64px; height: 64px; color: var(--c); filter: drop-shadow(0 0 18px var(--c)); }
+.p-funcion-texto { padding: 18px 20px 22px; }
+.p-funcion-texto h3 { display: flex; align-items: center; gap: 10px; font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: .5px; }
+.p-funcion-texto h3 i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); box-shadow: 0 0 10px var(--c); flex-shrink: 0; }
+.p-funcion-texto p { color: var(--text-gray); font-size: 14.5px; line-height: 1.55; margin-top: 6px; }
+
+/* ─── 3 pasos ────────────────────────────────── */
+.p-pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: paso; }
+.p-paso {
+  position: relative; text-align: center; padding: 34px 24px 28px;
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px;
+}
+.p-paso b {
+  display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; border-radius: 50%;
+  font-family: 'Orbitron', monospace; font-size: 22px; margin-bottom: 14px;
+  background: rgba(255,0,80,0.12); border: 2px solid var(--red); color: var(--text-white); box-shadow: 0 0 18px rgba(255,0,80,0.35);
+}
+.p-paso:nth-child(2) b { background: rgba(0,240,255,0.1); border-color: var(--cyan); box-shadow: 0 0 18px rgba(0,240,255,0.3); }
+.p-paso:nth-child(3) b { background: rgba(255,215,0,0.1); border-color: var(--gold); box-shadow: 0 0 18px rgba(255,215,0,0.3); }
+.p-paso h3 { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; }
+.p-paso p { color: var(--text-gray); font-size: 14.5px; margin-top: 4px; }
+
+.p-final {
+  margin-top: 40px; text-align: center; padding: 44px 24px; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,0,80,0.14), rgba(0,240,255,0.08));
+  border: 1px solid rgba(255,0,80,0.28);
+}
+.p-final h3 { font-family: 'Orbitron', monospace; font-size: clamp(22px, 2.6vw, 34px); margin-bottom: 8px; }
+.p-final p { color: var(--text-gray); margin-bottom: 22px; }
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 1100px) {
+  .p-juegos { grid-template-columns: repeat(4, 1fr); }
+  .p-funciones { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .portada-ancho { padding: 0 16px; }
+  .p-arriba { min-height: auto; padding-top: 96px; }
+  .p-arriba .portada-ancho { grid-template-columns: 1fr; gap: 24px; }
+  .p-abanico { height: 300px; order: -1; }
+  .p-abanico img { width: 38%; }
+  .p-juegos { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .p-funciones, .p-pasos { grid-template-columns: 1fr; }
+  .p-seccion { padding: 60px 0; }
+}
