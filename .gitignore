@@ -3,3 +3,6 @@ claves-privadas/
 
 # Ajustes locales de Claude
 .claude/
+
+# El botón de publicar se queda en el PC (no se publica dentro de la web)
+publicar-web.bat
