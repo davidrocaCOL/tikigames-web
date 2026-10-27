@@ -59,7 +59,7 @@
     </div>
 
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
-      <h1 style="font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+      <h1 style="font-family:var(--display);font-size:36px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">
         Catálogo de Juegos
       </h1>
     </div>
@@ -80,7 +80,7 @@
       </a>
       <div style="padding:40px 40px 40px 0;">
         <span class="badge badge-cyan" style="margin-bottom:16px;display:inline-block;">DEPORTIVO</span>
-        <h2 style="font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;letter-spacing:1px;margin-bottom:12px;">MUNDIALITO TORNEO</h2>
+        <h2 style="font-family:var(--display);font-size:36px;font-weight:700;letter-spacing:.04em;margin-bottom:12px;">MUNDIALITO TORNEO</h2>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
           <span class="stars">★★★★✩</span>
           <span style="color:var(--text-dim);font-size:13px;">4.5 · Nuevo</span>
@@ -111,7 +111,7 @@
       </a>
       <div style="padding:40px 40px 40px 0;">
         <span class="badge badge-cyan" style="margin-bottom:16px;display:inline-block;">DEPORTIVO</span>
-        <h2 style="font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;letter-spacing:1px;margin-bottom:12px;">CARRERITAS</h2>
+        <h2 style="font-family:var(--display);font-size:36px;font-weight:700;letter-spacing:.04em;margin-bottom:12px;">CARRERITAS</h2>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
           <span class="stars">★★★★★</span>
           <span style="color:var(--text-dim);font-size:13px;">4.7 · Nuevo</span>
@@ -134,7 +134,7 @@
       <div style="width:56px;height:56px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       </div>
-      <h3 style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">Más juegos próximamente</h3>
+      <h3 style="font-family:var(--display);font-size:22px;font-weight:700;margin-bottom:8px;">Más juegos próximamente</h3>
       <p style="color:var(--text-dim);font-size:14px;max-width:380px;margin:0 auto 24px;">Estamos desarrollando nuevos juegos para TikTok Live. Síguenos para enterarte primero.</p>
       <a href="comunidad.html" class="btn btn-outline">Avisarme cuando lleguen</a>
     </div>
@@ -198,10 +198,10 @@
   const banner = document.createElement('div');
   banner.style.cssText = 'background:rgba(255,0,80,0.08);border:1px solid rgba(255,0,80,0.25);border-radius:8px;padding:12px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;';
   banner.innerHTML = `
-    <span style="font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;color:white;">
+    <span style="font-family:var(--display);font-size:15px;font-weight:600;color:white;">
       Mostrando juegos de categoría: <span style="color:var(--red);">${label}</span>
     </span>
-    <a href="catalogo.html" style="font-size:13px;color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-dim)'">Limpiar filtro ✕</a>
+    <a href="catalogo.html" style="font-size:13px;color:var(--text-dim);font-family:var(--display);font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-dim)'">Limpiar filtro ✕</a>
   `;
   // Insert after the page heading
   const heading = document.querySelector('h1');

@@ -3,39 +3,59 @@
    Variables, Reset, Tipografía, Scrollbar
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600&display=swap');
+/* La misma letra que la app TikiGames (Inter), guardada en la web: sin depender de Google */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('../assets/fuentes/inter-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: italic; font-weight: 100 900; font-display: swap; src: url('../assets/fuentes/inter-italic.woff2') format('woff2'); }
 
 /* ─── Variables ─────────────────────────────── */
 :root {
-  --bg-primary:      #0a0a0f;
-  --bg-secondary:    #12121e;
-  --bg-card:         #1a1a2e;
-  --bg-overlay:      rgba(10, 10, 15, 0.85);
+  /* Colores de la app TikiGames (css/base.css de la app). Si cambian allí, se cambian aquí. */
+  --bg:          #0a0a0f;
+  --bg-2:        #0c0c13;
+  --barra:       #0e0e16;
+  --surface:     #101018;
+  --surface-2:   #171722;
+  --surface-3:   #1b1b27;
+  --line:        #22222f;
+  --line-soft:   #1b1b26;
+  --line-2:      #3a3a55;
+  --ink:         #eef0f6;
+  --ink-dim:     #8b8ca3;
+  --ink-faint:   #5c5d73;
+  --red:         #ff0050;
+  --red-rgb:     255,0,80;
+  --red-soft:    rgba(255,0,80,.13);
+  --cyan:        #00f0ff;
+  --cyan-rgb:    0,240,255;
+  --cyan-soft:   rgba(0,240,255,.12);
+  --warn:        #ffc13b;
+  --r:           10px;
+  --suave:       cubic-bezier(.4,0,.2,1);
+  --muelle:      cubic-bezier(.2,.9,.25,1.06);
+  --display:     'Inter', system-ui, sans-serif;
 
-  --red:             #ff0050;
-  --red-dark:        #cc0040;
-  --cyan:            #00f0ff;
-  --cyan-dark:       #00b8c8;
-  --purple:          #7b2fff;
-  --gold:            #ffd700;
-
-  --text-white:      #ffffff;
-  --text-gray:       #b0b0c0;
-  --text-dim:        #606078;
-
-  --border:          rgba(255,255,255,0.08);
+  /* Los nombres de siempre de la web, apuntando a los colores de la app */
+  --bg-primary:      var(--bg);
+  --bg-secondary:    var(--surface);
+  --bg-card:         var(--surface-2);
+  --bg-overlay:      rgba(10,10,15,0.85);
+  --red-dark:        #e00047;
+  --cyan-dark:       #00c8d6;
+  --purple:          #a78bfa;
+  --gold:            var(--warn);
+  --text-white:      var(--ink);
+  --text-gray:       var(--ink-dim);
+  --text-dim:        var(--ink-faint);
+  --border:          var(--line);
   --border-glow:     rgba(0,240,255,0.3);
-
-  --radius-sm:       6px;
-  --radius-md:       12px;
-  --radius-lg:       20px;
-
-  --shadow-red:      0 0 20px rgba(255,0,80,0.4);
-  --shadow-cyan:     0 0 20px rgba(0,240,255,0.3);
-  --shadow-card:     0 8px 32px rgba(0,0,0,0.5);
-
-  --transition:      0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm:       8px;
+  --radius-md:       10px;
+  --radius-lg:       16px;
+  --shadow-red:      0 0 16px rgba(255,0,80,.25);
+  --shadow-cyan:     0 0 16px rgba(0,240,255,.2);
+  --shadow-card:     0 14px 34px rgba(0,0,0,.45);
+  --transition:      .15s var(--suave);
+  --transition-slow: .35s var(--suave);
 }
 
 /* ─── Reset ──────────────────────────────────── */
@@ -44,7 +64,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--display);
   background: var(--bg-primary);
   color: var(--text-white);
   overflow-x: hidden;
@@ -57,19 +77,25 @@ img     { max-width: 100%; display: block; }
 button  { cursor: pointer; border: none; outline: none; background: none; }
 
 /* ─── Scrollbar ─────────────────────────────── */
-::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-secondary); }
-::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+::-webkit-scrollbar       { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 9px; }
 
 /* ─── Tipografía ─────────────────────────────── */
-.font-display { font-family: 'Orbitron', monospace; }
-.font-title   { font-family: 'Rajdhani', sans-serif; }
+.font-display, .font-title { font-family: var(--display); }
 
+/* Títulos como en la app: Inter gruesa y apretadita */
 h1, h2, h3 {
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -.01em;
   line-height: 1.1;
 }
+
+/* El fondo de puntitos no existe en la app: fuera */
+#particles-canvas { display: none; }
+
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 4px; }
 
 /* ─── Utilidades de layout ───────────────────── */
 .section {
@@ -94,47 +120,3 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .section { padding: 60px 20px; }
 }
-
-/* ─── Hero responsive ────────────────────────── */
-@media (max-width: 900px) {
-  /* En tablet/móvil el carrusel se reubica arriba del texto, en vez de ocultarse */
-  .hero { flex-direction: column; padding-top: 90px !important; }
-  .hero-carousel-wrap {
-    position: relative !important;
-    width: 100% !important;
-    height: 260px !important;
-    right: auto !important;
-    bottom: auto !important;
-    order: -1;
-    margin-bottom: 12px;
-  }
-  .hero > div[style*="z-index:10"] > div {
-    max-width: 100% !important;
-  }
-}
-@media (max-width: 768px) {
-  .hero { min-height: auto !important; padding-bottom: 60px; display: flex !important; flex-direction: column !important; }
-  .hero > div[style*="z-index:10"] { padding: 24px 20px 40px !important; order: 1; }
-  .stats-strip { flex-direction: row; gap: 24px; }
-}
-
-/* ─── Hero carousel controls ─────────────────── */
-.hero-carousel-arrow {
-  width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3);
-  background: rgba(10,10,15,0.5); color: white; font-size: 18px; line-height: 1;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
-}
-.hero-carousel-arrow:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,240,255,0.1); }
-.hero-dot {
-  width: 8px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.3);
-  cursor: pointer; display: inline-block; transition: width 0.3s ease, border-radius 0.3s ease;
-  position: relative; overflow: hidden;
-}
-.hero-dot.active { width: 34px; border-radius: 3px; background: rgba(255,255,255,0.2); }
-.hero-dot-fill {
-  position: absolute; inset: 0; width: 0%; background: var(--cyan); border-radius: 3px;
-  display: block;
-}
-.hero-dot.active .hero-dot-fill { animation: heroDotFill 6s linear forwards; }
-@keyframes heroDotFill { from { width: 0%; } to { width: 100%; } }

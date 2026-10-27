@@ -4,72 +4,35 @@
    Toast, Search, Live badge, Paginación
    ============================================ */
 
-/* ─── Botones ────────────────────────────────── */
+/* ─── Botones (como en la app) ──────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  border-radius: var(--radius-sm);
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
+  padding: 9px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -.005em;
+  transition: transform .18s var(--muelle), background-color .2s, border-color .2s, color .2s, box-shadow .2s, filter .2s;
 }
+.btn:hover  { border-color: #3a3a52; transform: translateY(-1px); }
+.btn:active { transform: translateY(0) scale(.98); }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  transition: 0.5s;
-}
-.btn:hover::before { left: 100%; }
+.btn-primary { background: var(--red); border-color: var(--red); color: #fff; box-shadow: 0 0 16px rgba(var(--red-rgb),.25); }
+.btn-primary:hover { filter: brightness(1.1); border-color: var(--red); }
 
-.btn-primary {
-  background: var(--red);
-  color: white;
-  box-shadow: var(--shadow-red);
-}
-.btn-primary:hover {
-  background: var(--red-dark);
-  box-shadow: 0 0 30px rgba(255,0,80,0.6);
-  transform: translateY(-2px);
-}
+.btn-outline { background: transparent; color: var(--ink-dim); }
+.btn-outline:hover { color: var(--ink); }
 
-.btn-outline {
-  background: transparent;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.btn-outline:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  box-shadow: var(--shadow-cyan);
-  transform: translateY(-2px);
-}
+.btn-cyan { background: transparent; border-color: rgba(var(--cyan-rgb),.4); color: var(--cyan); }
+.btn-cyan:hover { background: var(--cyan-soft); border-color: var(--cyan); }
 
-.btn-cyan {
-  background: var(--cyan);
-  color: var(--bg-primary);
-  box-shadow: var(--shadow-cyan);
-}
-.btn-cyan:hover {
-  background: var(--cyan-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(0,240,255,0.5);
-}
-
-.btn-lg {
-  padding: 16px 36px;
-  font-size: 17px;
-  border-radius: var(--radius-md);
-}
+.btn-lg { padding: 0 22px; height: 46px; font-size: 15px; border-radius: 10px; }
 
 /* ─── Section header ─────────────────────────── */
 .section-header {
@@ -80,7 +43,7 @@
 }
 
 .section-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -96,15 +59,12 @@
   width: 4px; height: 70%;
   background: var(--red);
   border-radius: 2px;
-  box-shadow: var(--shadow-red);
-}
+  }
 
 .section-link {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--display);
   font-weight: 600;
   font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
   color: var(--text-gray);
   display: flex;
   align-items: center;
@@ -118,11 +78,9 @@
   display: inline-block;
   padding: 3px 10px;
   border-radius: 4px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--display);
   font-weight: 700;
   font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
 .badge-red    { background: var(--red);                   color: white; }
 .badge-cyan   { background: var(--cyan);                  color: var(--bg-primary); }
@@ -137,7 +95,7 @@
   gap: 6px;
   background: var(--red);
   color: white;
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 1px;
@@ -157,7 +115,7 @@
   gap: 48px;
 }
 .stat-number {
-  font-family: 'Orbitron', monospace;
+  font-family:var(--display);
   font-size: 28px;
   font-weight: 700;
   color: var(--cyan);
@@ -203,10 +161,10 @@
   align-items: flex-start;
 }
 .game-card-body    { padding: 14px 16px 16px; }
-.game-card-name    { font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; }
+.game-card-name    { font-family:var(--display); font-size: 17px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; }
 .game-card-meta    { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-gray); }
 .game-card-players { display: flex; align-items: center; gap: 4px; }
-.game-card-price   { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; color: var(--cyan); margin-top: 8px; }
+.game-card-price   { font-family:var(--display); font-weight: 700; font-size: 16px; color: var(--cyan); margin-top: 8px; }
 .game-card-price.free { color: var(--gold); }
 
 /* ─── Grid layouts ───────────────────────────── */
@@ -293,7 +251,7 @@
 
 .form-group label {
   display: block;
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -373,7 +331,7 @@
   padding: 20px 60px 20px 28px;
   color: white;
   font-size: 22px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   box-shadow: var(--shadow-cyan);
 }
 .search-big:focus { outline: none; }
@@ -401,7 +359,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-gray);
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   font-weight: 600;
   font-size: 15px;
   display: flex;
@@ -435,7 +393,7 @@
 .footer-logo { height: 40px; filter: drop-shadow(0 0 8px rgba(255,0,80,0.4)); }
 
 .footer-col h4 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -665,7 +623,7 @@
 .tk-video-overlay.is-replay .tk-video-icon svg { fill: var(--red); }
 
 /* Texto justo debajo del icono, no anclado al fondo */
-.tk-video-label { font-family: 'Rajdhani', sans-serif; font-weight: 700;
+.tk-video-label { font-family:var(--display); font-weight: 700;
   letter-spacing: 1.5px; text-transform: uppercase; font-size: 13px; color: #fff;
   text-shadow: 0 2px 8px rgba(0,0,0,0.85); }
 .tk-video-label[hidden] { display: none; }

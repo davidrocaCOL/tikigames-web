@@ -12,26 +12,25 @@
   justify-content: space-between;
   padding: 0 40px;
   height: 70px;
-  background: rgba(10,10,15,0.98);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,0,80,0.25);
-  box-shadow: 0 2px 24px rgba(0,0,0,0.7);
+  background: rgba(14,14,22,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
   transition: var(--transition);
 }
 
 .navbar.scrolled {
-  background: #0a0a0f;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.9), 0 1px 0 rgba(255,0,80,0.2);
+  background: var(--barra);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
 }
 
 /* Logo */
 .nav-logo img {
   height: 84px;
-  filter: drop-shadow(0 0 10px rgba(255,0,80,0.5));
+  filter: drop-shadow(0 0 8px rgba(255,0,80,0.25));
   transition: var(--transition);
 }
 .nav-logo img:hover {
-  filter: drop-shadow(0 0 16px rgba(255,0,80,0.9));
+  filter: drop-shadow(0 0 12px rgba(255,0,80,0.45));
 }
 
 /* Links */
@@ -42,11 +41,9 @@
 }
 
 .nav-links a {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--display);
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 14.5px;
   color: var(--text-gray);
   position: relative;
   padding-bottom: 4px;
@@ -59,8 +56,8 @@
   bottom: 0; left: 0;
   width: 0; height: 2px;
   background: var(--red);
+  border-radius: 2px;
   transition: var(--transition);
-  box-shadow: var(--shadow-red);
 }
 
 .nav-links a:hover,
@@ -122,11 +119,9 @@
   display: block;
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--display);
   font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 17.5px;
   color: var(--text-gray);
   transition: var(--transition);
 }
@@ -148,7 +143,7 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 3px 4px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family:var(--display);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.5px;
