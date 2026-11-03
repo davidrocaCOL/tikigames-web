@@ -390,7 +390,7 @@
   margin-top: 16px;
   max-width: 280px;
 }
-.footer-logo { height: 40px; filter: drop-shadow(0 0 8px rgba(255,0,80,0.4)); }
+.footer-logo { height: 30px; width: auto; }
 
 .footer-col h4 {
   font-family:var(--display);
