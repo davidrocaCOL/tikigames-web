@@ -109,7 +109,7 @@ function abrirFicha(id) {
         <p>${j.largo}</p>
         <div class="jg-galeria">
           <button type="button" class="jg-mini on" data-foto="${portada(j)}"><img src="${portada(j)}" alt="Portada" /></button>
-          ${fotos.map((f, n) => `<button type="button" class="jg-mini" data-foto="${f}"><img src="${f}" alt="Imagen ${n + 1}" loading="lazy" onerror="this.parentElement.classList.add('vacio');this.remove()" /><span class="jg-hueco">${ICONO_IMAGEN}<small>Próximamente</small></span></button>`).join('')}
+          ${fotos.map((f, n) => `<button type="button" class="jg-mini" data-foto="${f}"><img src="${f}" alt="Imagen ${n + 1}" loading="lazy" data-hueco /><span class="jg-hueco">${ICONO_IMAGEN}<small>Próximamente</small></span></button>`).join('')}
         </div>
         <ul class="jg-puntos">
           <li>Viene dentro de la app TikiGames</li>
@@ -122,6 +122,10 @@ function abrirFicha(id) {
         <small class="jg-nota">Gratis · Para Windows 10 y 11</small>
       </div>
     </div>`;
+  // la foto que aún no existe deja su hueco «Próximamente» (sin código dentro del HTML: la web no lo permite)
+  capa.querySelectorAll('img[data-hueco]').forEach(im => im.addEventListener('error', () => {
+    im.parentElement.classList.add('vacio'); im.remove();
+  }, { once: true }));
   capa.hidden = false;
   capa.classList.remove('cerrando');
   document.documentElement.classList.add('sin-scroll');

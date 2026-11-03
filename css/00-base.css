@@ -120,3 +120,8 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .section { padding: 60px 20px; }
 }
+
+/* Enlaces del pie (3-nov-2026): el color al pasar el ratón va aquí y no en el HTML, así la web no necesita código en línea (seguridad) */
+.pie-enlace { color: var(--text-dim); }
+.pie-enlace:hover { color: var(--cyan); }
+.pie-enlace.al-blanco:hover { color: #fff; }
