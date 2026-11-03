@@ -1,0 +1,69 @@
+/* ===========================================================
+   Guía de instalación (3-nov-2026, Ace): la ventanita que sale al descargar (js/09-guia-descarga.js).
+   Los dibujos imitan lo que se ve en el navegador y en Windows; lo que hay que tocar va iluminado.
+   =========================================================== */
+.guia-fondo {
+  position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: rgba(5,5,9,.82); backdrop-filter: blur(8px);
+  opacity: 0; pointer-events: none; transition: opacity .25s var(--suave);
+}
+.guia-fondo.abierta { opacity: 1; pointer-events: auto; }
+body.guia-abierta { overflow: hidden; }
+.guia {
+  position: relative; width: 100%; max-width: 980px; max-height: calc(100vh - 32px); overflow-y: auto;
+  padding: 30px 30px 24px; border-radius: 22px; background: linear-gradient(165deg, var(--surface-2), var(--surface));
+  box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 80px rgba(0,0,0,.6);
+  transform: translateY(18px) scale(.97); transition: transform .35s var(--muelle);
+}
+.guia-fondo.abierta .guia { transform: none; }
+.guia-x { position: absolute; top: 14px; right: 16px; width: 34px; height: 34px; border-radius: 50%; color: var(--ink-dim); font-size: 16px; }
+.guia-x:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+
+.guia-cab { text-align: center; max-width: 560px; margin: 0 auto 24px; }
+.guia-bajando { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; background: var(--cyan-soft); color: var(--cyan); margin-bottom: 12px; }
+.guia-bajando svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; animation: guia-baja 1.4s var(--suave) infinite; }
+@keyframes guia-baja { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
+.guia-cab h2 { font-size: 28px; font-weight: 900; letter-spacing: -.02em; margin: 0 0 6px; }
+.guia-cab p { color: var(--ink-dim); font-size: 14.5px; line-height: 1.5; margin: 0; }
+
+.guia-pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.guia-paso { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 16px; background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--line); }
+.guia-num { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: #fff; font-weight: 900; font-size: 14px; }
+.guia-que { display: flex; flex-direction: column; gap: 2px; min-height: 44px; }
+.guia-que small { color: var(--ink-dim); font-size: 12.5px; }
+.guia-que b { font-size: 15.5px; font-weight: 800; }
+
+/* los dibujos */
+.guia-dibujo { margin-top: auto; border-radius: 10px; font-family: 'Segoe UI', var(--display); font-size: 11.5px; line-height: 1.35; text-align: left; user-select: none; }
+.guia-dibujo .w-boton { display: inline-block; padding: 5px 10px; border-radius: 4px; background: #f3f3f3; color: #1a1a1a; font-weight: 600; font-size: 11px; }
+.guia-dibujo .w-boton.oscuro { background: rgba(255,255,255,.08); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.45); border-radius: 2px; }
+/* lo que hay que tocar: borde rojo de la marca que late */
+.guia-dibujo .luz { position: relative; box-shadow: 0 0 0 2px var(--red), 0 0 16px rgba(var(--red-rgb), .7); animation: guia-luz 1.5s ease-in-out infinite; }
+@keyframes guia-luz { 0%, 100% { box-shadow: 0 0 0 2px var(--red), 0 0 6px rgba(var(--red-rgb), .5); } 50% { box-shadow: 0 0 0 3px var(--red), 0 0 20px rgba(var(--red-rgb), .9); } }
+
+.guia-dibujo.nav { background: #2b2b2f; color: #e8e8ea; padding: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.4); }
+.nav-fila { display: flex; gap: 8px; align-items: flex-start; }
+.nav-aviso { flex: none; width: 18px; height: 18px; border-radius: 50%; background: #ffc13b; color: #1a1300; font-weight: 900; display: grid; place-items: center; font-size: 11px; }
+.nav-botones { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
+
+.guia-dibujo.win { background: #0063b1; color: #fff; padding: 12px 12px 10px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.4); border-radius: 4px; }
+.win-escudo svg { width: 22px; height: 22px; }
+.win-tit { font-size: 14px; font-weight: 600; }
+.win-txt, .win-dato { color: rgba(255,255,255,.9); }
+.win-dato i { font-style: normal; font-weight: 600; }
+.win-mas { align-self: flex-start; text-decoration: underline; padding: 1px 4px; border-radius: 3px; }
+.win-pie { display: flex; gap: 6px; justify-content: flex-end; margin-top: 6px; }
+
+.guia-pie { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
+.guia-otra { color: var(--ink-dim); font-size: 13px; text-decoration: underline; }
+.guia-otra:hover { color: var(--cyan); }
+.guia-listo { min-width: 160px; justify-content: center; }
+
+@media (max-width: 820px) {
+  .guia { padding: 24px 16px 18px; }
+  .guia-cab h2 { font-size: 22px; }
+  .guia-pasos { grid-template-columns: 1fr; }
+  .guia-que { min-height: 0; }
+  .guia-pie { flex-direction: column-reverse; align-items: stretch; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .guia-bajando svg, .guia-dibujo .luz { animation: none; } }
