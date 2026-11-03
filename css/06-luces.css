@@ -1,0 +1,78 @@
+/* ============================================
+   TIKIGAMES - LUCES (3-nov-2026, Ace: «pulido fino»)
+   Brillos suaves de fondo en todas las páginas, el mando grande de la portada
+   y el borde de luz rosa/cian de las tarjetas, que sigue al ratón
+   (js/08-luces.js solo apunta dónde está: --mx, --my).
+   Todo se anima con transform y opacity: no cuesta nada al dibujar.
+   ============================================ */
+
+/* ─── Fondo: brillos rosa y cian que se mueven muy despacio ─── */
+body::before {
+  content: ''; position: fixed; inset: -12vmax; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40vmax 30vmax at 84% 14%, rgba(var(--red-rgb),.09), transparent 70%),
+    radial-gradient(36vmax 30vmax at 8% 62%, rgba(var(--cyan-rgb),.055), transparent 70%),
+    radial-gradient(34vmax 26vmax at 58% 108%, rgba(var(--red-rgb),.06), transparent 70%);
+  animation: luces-deriva 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes luces-deriva { to { transform: translate3d(-4vmax, 3vmax, 0) scale(1.06); } }
+
+/* ─── Portada: el mando de TikiGames, grande y brillando detrás de las portadas ─── */
+.p-mando {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 74%; top: 52%; width: min(760px, 58vw); height: auto;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 24px rgba(var(--red-rgb),.85)) drop-shadow(0 0 70px rgba(var(--red-rgb),.5));
+  opacity: .16;
+  animation: p-mando-entra 1.4s var(--muelle) both, p-mando-respira 7s ease-in-out 1.4s infinite;
+  will-change: transform, opacity;
+}
+@keyframes p-mando-entra {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(.82) rotate(-6deg); }
+  to   { opacity: .16; transform: translate(-50%, -50%); }
+}
+@keyframes p-mando-respira {
+  0%, 100% { opacity: .16; transform: translate(-50%, -50%); }
+  50%      { opacity: .24; transform: translate(-50%, -51.5%) scale(1.03); }
+}
+@media (max-width: 860px) {
+  .p-mando { left: 50%; top: 250px; width: min(560px, 120vw); }
+}
+
+/* ─── Tarjetas: borde de luz rosa → cian donde está el ratón, y un foco suave dentro ─── */
+.p-funcion, .p-paso, .p-final { position: relative; }
+@media (hover: hover) {
+  .p-juego::before, .p-funcion::before, .p-plan::before, .p-paso::before, .p-final::before {
+    content: ''; position: absolute; inset: 0; z-index: 4; pointer-events: none;
+    border-radius: inherit; padding: 1.5px;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0%),
+                var(--red), rgba(var(--cyan-rgb),.9) 42%, transparent 72%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0; transition: opacity .2s var(--suave);
+  }
+  .p-funcion::after, .p-plan::after, .p-paso::after, .p-final::after {
+    content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,.05), transparent 65%);
+    opacity: 0; transition: opacity .2s var(--suave);
+  }
+  .p-plan > *, .p-paso > *, .p-final > * { position: relative; z-index: 1; }
+  .p-plan > .p-plan-reco { position: absolute; z-index: 2; }
+  .p-juego:hover::before, .p-funcion:hover::before, .p-plan:hover::before, .p-paso:hover::before, .p-final:hover::before,
+  .p-funcion:hover::after, .p-plan:hover::after, .p-paso:hover::after, .p-final:hover::after { opacity: 1; }
+  .p-juego:hover, .p-funcion:hover {
+    box-shadow: 0 18px 40px rgba(0,0,0,.5), 0 0 32px rgba(var(--red-rgb),.14);
+  }
+  .p-plan, .p-paso { transition: transform .15s var(--suave), box-shadow .15s var(--suave), border-color .15s var(--suave); }
+  .p-plan:hover, .p-paso:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 0 32px rgba(var(--red-rgb),.12);
+  }
+}
+
+/* Quien pide menos movimiento en su equipo, lo tiene quieto */
+@media (prefers-reduced-motion: reduce) {
+  body::before, .p-mando { animation: none; }
+}
