@@ -5,5 +5,7 @@ https://www.tikigames.shop/* https://tikigames.shop/:splat 301!
 http://tikigames.shop/* https://tikigames.shop/:splat 301!
 http://www.tikigames.shop/* https://tikigames.shop/:splat 301!
 
-# La página de Mundialito cambió de nombre (antes pages/juego.html)
-/pages/juego.html /pages/mundialito.html 301
+# Mundialito y Carreritas ya no tienen página propia (3-nov-2026, Ace): todos los juegos, con su ficha en Juegos
+/pages/juego.html /pages/catalogo.html#mundialito 301
+/pages/mundialito.html /pages/catalogo.html#mundialito 301
+/pages/carreritas.html /pages/catalogo.html#carreritas 301

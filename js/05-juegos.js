@@ -23,14 +23,12 @@ const JUEGOS = [
   { id: 'ballracing', nombre: 'Ball Racing', cats: ['carreras', 'paises'],
     texto: 'Carrera de canicas con ambiente de F1.',
     largo: 'Carrera de canicas con ambiente de F1. Los regalos dan poderes y el público corre por su país o por su cuenta.' },
-  { id: 'mundialito', nombre: 'Mundialito', cats: ['futbol', 'paises'], pagina: 'mundialito.html',
+  { id: 'mundialito', nombre: 'Mundialito', cats: ['futbol', 'paises'],
     texto: 'Torneo de fútbol por países.',
-    largo: 'Torneo por países en el que la audiencia apoya a su selección hasta coronar al campeón. Clasificación, goleadores y récords que se guardan entre transmisiones.',
-    galeria: ['../assets/img/juegos/mundialito_torneo.jpg', '../assets/img/juegos/slide_puntos.png', '../assets/img/juegos/slide_multiplicadores.png', '../assets/img/juegos/slide_reconocimientos.png'] },
-  { id: 'carreritas', nombre: 'Carreritas', cats: ['carreras', 'paises'], pagina: 'carreritas.html',
+    largo: 'Torneo por países en el que la audiencia apoya a su selección hasta coronar al campeón. Clasificación, goleadores y récords que se guardan entre transmisiones.' },
+  { id: 'carreritas', nombre: 'Carreritas', cats: ['carreras', 'paises'],
     texto: 'Carrera de animales por países.',
-    largo: 'Carrera de animales por países. Cada país corre con los regalos, los taps y los follows de su gente, con turbos, multiplicadores y tarjetas.',
-    galeria: ['../assets/img/juegos/carreritas_1_portada.jpg', '../assets/img/juegos/carreritas_2_poderes.jpg', '../assets/img/juegos/carreritas_3_multiplicadores.jpg', '../assets/img/juegos/carreritas_4_modos.jpg'] },
+    largo: 'Carrera de animales por países. Cada país corre con los regalos, los taps y los follows de su gente, con turbos, multiplicadores y tarjetas.' },
   { id: 'octogol', nombre: 'Octogol', cats: ['futbol', 'paises'],
     texto: 'Ocho países en un octágono.',
     largo: 'Ocho países en un octágono, cada uno con su cañón y su portería. Los regalos disparan balones, escudos, tornados y meteoritos; gana el país con más goles.' },
@@ -55,7 +53,7 @@ const ICONO_WIN = '<svg class="icono-windows" width="16" height="16" viewBox="0 
 const ICONO_IMAGEN = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>';
 const nombreCat = id => CATEGORIAS.find(c => c.id === id);
 const portada = j => `../assets/img/portadas/portada-${j.id}.jpg`;
-const galeria = j => j.galeria || ['01', '02', '03', '04'].map(n => `../assets/img/juegos/${j.id}/${n}.jpg`);
+const galeria = j => ['01', '02', '03', '04'].map(n => `../assets/img/juegos/${j.id}/${n}.jpg`);
 
 // ─── Menú y tarjetas ───
 (function () {
@@ -120,7 +118,6 @@ function abrirFicha(id) {
         </ul>
         <div class="jg-acciones">
           <a class="btn btn-primary btn-lg btn-descargar" href="${DESCARGA}">${ICONO_WIN}<span>Descargar TikiGames</span></a>
-          ${j.pagina ? `<a class="btn btn-outline btn-lg" href="${j.pagina}">Ver más</a>` : ''}
         </div>
         <small class="jg-nota">Gratis · Para Windows 10 y 11</small>
       </div>
