@@ -43,7 +43,7 @@ body::before {
 /* ─── Tarjetas: borde de luz rosa → cian donde está el ratón, y un foco suave dentro ─── */
 .p-funcion, .p-paso, .p-final { position: relative; }
 @media (hover: hover) {
-  .p-juego::before, .p-funcion::before, .p-plan::before, .p-paso::before, .p-final::before {
+  .p-juego::before, .p-funcion::before, .ov-tarjeta::before, .p-plan::before, .p-paso::before, .p-final::before {
     content: ''; position: absolute; inset: 0; z-index: 4; pointer-events: none;
     border-radius: inherit; padding: 1.5px;
     background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0%),
@@ -60,9 +60,9 @@ body::before {
   }
   .p-plan > *, .p-paso > *, .p-final > * { position: relative; z-index: 1; }
   .p-plan > .p-plan-reco { position: absolute; z-index: 2; }
-  .p-juego:hover::before, .p-funcion:hover::before, .p-plan:hover::before, .p-paso:hover::before, .p-final:hover::before,
+  .p-juego:hover::before, .p-funcion:hover::before, .ov-tarjeta:hover::before, .p-plan:hover::before, .p-paso:hover::before, .p-final:hover::before,
   .p-funcion:hover::after, .p-plan:hover::after, .p-paso:hover::after, .p-final:hover::after { opacity: 1; }
-  .p-juego:hover, .p-funcion:hover {
+  .p-juego:hover, .p-funcion:hover, .ov-tarjeta:hover {
     box-shadow: 0 18px 40px rgba(0,0,0,.5), 0 0 32px rgba(var(--red-rgb),.14);
   }
   .p-plan, .p-paso { transition: transform .15s var(--suave), box-shadow .15s var(--suave), border-color .15s var(--suave); }

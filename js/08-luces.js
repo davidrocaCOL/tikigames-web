@@ -6,7 +6,7 @@
    ============================================ */
 (function () {
   if (!matchMedia('(hover: hover)').matches) return;
-  const TARJETAS = '.p-juego, .p-funcion, .p-plan, .p-paso, .p-final';
+  const TARJETAS = '.p-juego, .p-funcion, .p-plan, .p-paso, .p-final, .ov-tarjeta';
   let ultimo = null, pendiente = false;
   addEventListener('pointermove', e => {
     ultimo = e;

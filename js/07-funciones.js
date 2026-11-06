@@ -7,92 +7,78 @@
 
 const FUNCIONES = {
   escenas: {
-    titulo: 'Escenas', color: '#c084fc',
+    titulo: 'Escena', color: '#c084fc',
     intro: 'Todos tus overlays en un solo enlace para TikTok Live Studio.',
     puntos: [
-      'Elige qué sale: metas, extensible, top donadores, top tap-taps, alertas de regalo, chat y videos.',
+      'Por capas: la de arriba tapa a las de abajo. El ojo la oculta, el candado la bloquea y Supr la quita.',
+      '«Agregar overlay»: tops, metas, alertas, batallas, chat y videos.',
       'Arrastra para mover, la esquina agranda y los lados recortan. Doble clic: se ajusta solo.',
-      'Plantillas listas: Clásica, Esencial, Ranking y Extensible.',
-      'Tipo de live: cámara, batalla o gaming, con las zonas de TikTok marcadas.',
+      'Plantillas listas (Clásica, Esencial, Ranking y Extensible) y tipo de live: cámara, batalla o gaming.',
+      'Ejemplo en Live Studio: ves dónde queda cada overlay antes del directo.',
       'Copias un solo enlace y lo pegas en Live Studio como fuente «Enlace».',
     ],
-    fotos: [['escenas-1', 'El editor de escenas']],
-  },
-  overlays: {
-    titulo: 'Overlays', color: '#00f0ff',
-    intro: 'Lo que pasa en tu live, en pantalla y con tu estilo.',
-    puntos: [
-      'Alertas de regalo: en una racha la tarjeta sube sola ×1, ×2, ×3…',
-      'Top donadores y top tap-taps, con el top 3 destacado y corona al primero.',
-      'Metas de me gusta, monedas, seguidores y compartidos que suben solas al cumplirse.',
-      'Extensible: una cuenta atrás que tu live alarga con regalos y seguidores.',
-      '8 temas y 8 letras para cada uno, y su enlace para Live Studio u OBS.',
-    ],
-    fotos: [['overlays-1', 'Todos tus overlays'], ['overlays-2', 'Alertas de regalo'], ['overlays-3', 'Top donadores'], ['overlays-4', 'Metas'], ['overlays-5', 'Extensible']],
+    fotos: [['escenas-1', 'El editor de escena']],
   },
   deck: {
     titulo: 'Stream Deck', color: '#a78bfa',
     intro: 'Tus botones a mano para lanzar sonidos, videos y acciones al instante.',
     puntos: [
-      'Ventana flotante: con «Ventana aparte» se queda siempre encima de Live Studio o del juego, del tamaño que quieras.',
+      'En el celular: escaneas el QR y lo usas por el Wi-Fi.',
+      'Ventana flotante: con «Ventana aparte» se queda encima de Live Studio o del juego, y la mueves desde la barra de arriba.',
       '9 botones gratis; con la suscripción, hasta 10×10.',
-      'Atajos Ctrl + Shift + 1 a 9, o el teclado numérico.',
-      'Varias páginas de botones (Principal, Animaciones…) y volumen propio.',
+      'Pestañas: cada página con su forma y su tecla. Atajos Ctrl + Shift + 1 a 9, o el teclado numérico.',
       'Mantén pulsado para cortar el sonido, el lápiz lo configura y arrastras para cambiarlo de sitio.',
     ],
     fotos: [['deck-1', 'Tu consola de botones'], ['deck-2', 'Elige cuántos botones']],
   },
-  voz: {
-    titulo: 'Chat de voz', color: '#2ee59d',
-    intro: 'Tu chat en pantalla y leído en voz alta.',
-    puntos: [
-      'Los últimos mensajes con foto y nombre, y avisos de seguidores, regalos y compartidos.',
-      'Lectura en voz alta con la voz de Windows, desde la app.',
-      'Filtros para que nadie abuse: por comando, solo ciertos espectadores, espera por persona, sin enlaces y palabras bloqueadas.',
-      'Cuántos mensajes a la vez, cuándo desaparecen, tamaño, tema y letra.',
-    ],
-    fotos: [['voz-1', 'Chat en pantalla']],
-  },
   alertas: {
-    titulo: 'Alertas de sonido y video', color: '#ffc13b',
-    intro: 'Cada regalo con su sonido, su imagen o su video.',
+    titulo: 'Alertas de sonido', color: '#ffc13b',
+    intro: 'Cada regalo con su sonido.',
     puntos: [
-      'Eliges el regalo de una lista, con su imagen, y le pones un sonido.',
-      'Biblioteca de sonidos y catálogo de regalos de tu región.',
+      'Eliges el regalo de una lista, con su imagen y su nombre, y le pones un sonido.',
+      'Biblioteca de sonidos y el catálogo de regalos de tu región, con los más populares primero.',
       'Volumen y duración de cada alerta; suenan desde la app, sin pantallas.',
-      'Videos e imágenes que salen en tus pantallas cuando pasa algo en tu live.',
     ],
-    fotos: [['alertas-1', 'Alertas de sonido'], ['alertas-2', 'Video e imagen']],
+    fotos: [['alertas-1', 'Alertas de sonido']],
+  },
+  video: {
+    titulo: 'Video e imagen', color: '#ff8a3d',
+    intro: 'Videos e imágenes que salen en tu live cuando pasa algo.',
+    puntos: [
+      'Acciones: qué se ve (tus videos, imágenes y sonidos).',
+      'Eventos: cuándo sale (un regalo, un seguidor, un comentario, un sticker…).',
+      'Pantallas: dónde sale. Cada pantalla es un enlace para Live Studio.',
+    ],
+    fotos: [['video-1', 'Acciones, eventos y pantallas']],
   },
   animaciones: {
-    titulo: 'Animaciones', color: '#ff8a3d',
-    intro: 'Videos animados para tu live: entradas, celebraciones, regalos y transiciones.',
+    titulo: 'Animaciones', color: '#ff5c9a',
+    intro: 'Videos animados para tu live, listos para usar.',
     puntos: [
-      'Una vitrina de animaciones listas, por categorías.',
+      'Por apartados: tap-taps, Quiéreme, ×2, ×3, Guante, Snipe…',
       'Muy pronto, con un toque: en tus acciones y en el Stream Deck.',
+      '¿Quieres una intro o una animación hecha para ti? Se pide por Discord.',
     ],
-    fotos: [['animaciones-1', 'La vitrina de animaciones']],
+    fotos: [['animaciones-1', 'Los apartados de animaciones']],
   },
   estadisticas: {
     titulo: 'Estadísticas', color: '#3ddc97',
     intro: 'Cómo te va de verdad, sin cuentas a mano.',
     puntos: [
       'Diamantes, seguidores nuevos, espectadores y horas en vivo, por semana, mes o año.',
-      'Comparado con el periodo anterior.',
+      'Tus números oficiales de TikTok: los 60 días, día por día.',
       'Tu mejor live, tu media por live y tu mejor día para salir.',
-      'Para premiar: tus mayores donadores, los de más tap-taps y quién subió de nivel.',
-      'Tus números oficiales de TikTok de los últimos 60 días.',
+      'Podios del mes: tus mayores donadores, los de más tap-taps y quién más tiempo estuvo.',
     ],
     fotos: [['estadisticas-1', 'Tus números del mes']],
   },
   envivo: {
-    titulo: 'En vivo', color: '#ff2d55',
+    titulo: 'En vivo ahora', color: '#ff2d55',
     intro: 'Los lives que más se ven ahora en tu región.',
     puntos: [
-      'Por idioma y por tipo de dinámica: gaming, charla, juegos interactivos, extensibles, batallas…',
-      'Lo que más se ve ahora, sumando espectadores.',
-      '«Para ti»: dinámicas parecidas a las de TikiGames.',
-      'Se pone al día solo cada 2 minutos.',
+      'Lo que más se ve ahora, sumando espectadores por tipo de dinámica.',
+      'Por idioma y por tipo: juegos interactivos, batallas, extensibles, gaming, charla…',
+      'Ordenados por más vistos, más populares, más tap-taps o más comentarios.',
     ],
     fotos: [['envivo-1', 'Lo que más se ve ahora']],
   },
@@ -111,20 +97,21 @@ const FUNCIONES = {
 (function () {
   const capa = document.getElementById('fn-ficha');
   if (!capa) return;
-  const ruta = n => `assets/img/funciones/${n}.jpg`;
+  // «carpeta/archivo.ext» va tal cual (overlays…); si no, es un recorte de la app en funciones/
+  const ruta = n => n.includes('/') ? `assets/img/${n}` : `assets/img/funciones/${n}.jpg`;
 
   function abrir(id) {
     const f = FUNCIONES[id];
     if (!f) return;
-    const icono = document.querySelector(`[data-funcion="${id}"] .p-captura > .ic`);
+    const icono = f.ic ? null : document.querySelector(`[data-funcion="${id}"] .ic`);
     capa.innerHTML = `
       <div class="jg-ventana fn-ventana" role="dialog" aria-modal="true" aria-label="${f.titulo}" style="--g:${f.color}">
         <button type="button" class="jg-cerrar" data-cerrar aria-label="Cerrar">✕</button>
         <div class="fn-cabeza">
-          <span class="ic-caja fn-ic">${icono ? icono.outerHTML : ''}</span>
+          <span class="ic-caja fn-ic">${f.ic || (icono ? icono.outerHTML : '')}</span>
           <div><h2>${f.titulo}</h2><p>${f.intro}</p></div>
         </div>
-        <figure class="fn-vista">
+        <figure class="fn-vista${f.ov ? ' es-ov' : ''}">
           <img src="${ruta(f.fotos[0][0])}" alt="${f.fotos[0][1]}" />
           <figcaption>${f.fotos[0][1]}</figcaption>
         </figure>

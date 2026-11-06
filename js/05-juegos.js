@@ -1,6 +1,6 @@
 /* ============================================
    TIKIGAMES - JUEGOS (pages/catalogo.html)
-   Los 9 juegos: tarjetas, menú de categorías y ficha de cada uno.
+   Los 10 juegos: tarjetas, menú de categorías y ficha de cada uno.
    Va ANTES de 02-animaciones.js para que sus tarjetas también se animen.
 
    Para poner imágenes de un juego: guardarlas en assets/img/juegos/<id>/
@@ -16,10 +16,14 @@ const CATEGORIAS = [
   { id: 'futbol',   nombre: 'Fútbol',        color: '#3ddc97' },
   { id: 'equipos',  nombre: 'Rojo vs Azul',  color: '#00f0ff' },
   { id: 'paises',   nombre: 'Por países',    color: '#ffc13b' },
+  { id: 'juntos',   nombre: 'Todos juntos',  color: '#a78bfa' },   // 5-nov-2026: Pool Cleaning, todo el público a la vez
 ];
 
 // texto: una línea para la tarjeta · largo: lo que dice la ficha (sale de la ficha tikigames.json de cada juego)
 const JUEGOS = [
+  { id: 'poolcleaning', nombre: 'Pool Cleaning', cats: ['juntos'], nuevo: true,
+    texto: 'Una piscina con un millón de bolas.',
+    largo: 'Una piscina gigante con un millón de bolas. Los regalos la llenan o la vacían con una máquina enorme, y tú la limpias con tu manguera hasta dejarla vacía.' },
   { id: 'ballracing', nombre: 'Ball Racing', cats: ['carreras', 'paises'],
     texto: 'Carrera de canicas con ambiente de F1.',
     largo: 'Carrera de canicas con ambiente de F1. Los regalos dan poderes y el público corre por su país o por su cuenta.' },
@@ -70,6 +74,7 @@ const galeria = j => ['01', '02', '03', '04'].map(n => `../assets/img/juegos/${j
     <button type="button" class="p-juego jg-tarjeta reveal" data-juego="${j.id}" data-cats="${j.cats.join(' ')}" aria-label="Ver ${j.nombre}">
       <img src="${portada(j)}" alt="" loading="lazy" width="600" height="800" />
       <span class="jg-chips">${j.cats.map(c => `<span style="--g:${nombreCat(c).color}">${nombreCat(c).nombre}</span>`).join('')}</span>
+      ${j.nuevo ? '<span class="p-juego-nuevo">Nuevo</span>' : ''}
       <span class="p-juego-texto"><span class="jc-titulo">${j.nombre}</span><span class="jg-linea">${j.texto}</span><span class="jg-ver">Ver juego →</span></span>
     </button>`).join('');
 

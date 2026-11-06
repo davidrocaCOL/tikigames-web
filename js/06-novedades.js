@@ -8,16 +8,16 @@
    ============================================ */
 
 const NOVEDADES_WEB = {
-  version: '1.1.9',
+  version: '1.2.19',
   cosas: [
-    { c: '#a78bfa', t: 'Stream Deck a tu medida', d: 'Consola nueva, hasta 10×10 y teclado numérico', ic: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>' },
-    { c: '#00f0ff', t: 'Escena a tu medida', d: 'Los recuadros se ajustan solos y se recortan desde los lados', ic: '<path d="M6 2v14a2 2 0 002 2h14M2 6h14a2 2 0 012 2v14"/>' },
-    { c: '#ff2d55', t: 'En vivo ahora', d: 'Los lives que más se ven en tu región', ic: '<circle cx="12" cy="12" r="2"/><path d="M7.8 7.8a6 6 0 000 8.4M16.2 7.8a6 6 0 010 8.4M5 5a10 10 0 000 14M19 5a10 10 0 010 14"/>' },
-    { c: '#3ddc97', t: 'Tus números de TikTok', d: '60 días de diamantes, lives y seguidores', ic: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>' },
-    { c: '#ffc13b', t: 'Inicio renovado', d: 'Tu último live y tu plan de un vistazo', ic: '<path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>' },
-    { c: '#00c2ff', t: 'Arrastra y ordena', d: 'Tarjetas que se mueven suaves, con sus puntitos', ic: '<circle cx="9" cy="6" r="1.4"/><circle cx="15" cy="6" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="9" cy="18" r="1.4"/><circle cx="15" cy="18" r="1.4"/>' },
-    { c: '#ff6bb5', t: 'Regalos populares', d: 'Los que más te mandan, primero', ic: '<path d="M12 2c1 4 5 5 5 10a5 5 0 01-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"/>' },
-    { c: '#ffc13b', t: 'Juegos al instante', d: 'Listos para jugar desde que abres la app', ic: '<rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 10v4M5 12h4M16 11h.01M18 13h.01"/>' },
+    { c: '#ff5a7e', t: 'Batalla de imágenes', d: 'Hasta 16 equipos con su regalo, rondas y victorias', ic: '<circle cx="5" cy="6" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><path d="M10 9.5l2 4.5 2-4.5"/>' },
+    { c: '#ff3d6e', t: 'Batalla: Supervivencia', d: 'Cada tanto se va el que menos tiene, hasta la final', ic: '<circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/>' },
+    { c: '#ffc13b', t: 'Batalla: regalos de 1', d: 'Cada equipo se une con un regalo de 1 moneda', ic: '<circle cx="12" cy="12" r="9"/><path d="M10 9l2-1v8"/>' },
+    { c: '#ff6bb5', t: 'Arrastra tu imagen', d: 'Suéltala encima del equipo y listo', ic: '<path d="M12 3v12M7 10l5 5 5-5M5 20h14"/>' },
+    { c: '#ff0050', t: 'Regalos con poder', d: 'Cuanto más vale, más espectacular', ic: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>' },
+    { c: '#00f0ff', t: 'Overlays en tres columnas', d: 'Lo que sale en tu live en el centro, sin bajar', ic: '<rect x="2" y="4" width="5" height="16" rx="1.5"/><rect x="9" y="4" width="6" height="16" rx="1.5"/><rect x="17" y="4" width="5" height="16" rx="1.5"/>' },
+    { c: '#ff3d6e', t: 'Versus en 4 overlays', d: 'Tira y afloja, Duelo, Reto y Equipos', ic: '<rect x="2" y="9" width="20" height="6" rx="3"/><path d="M12 6v12"/>' },
+    { c: '#2ee59d', t: 'Todos los regalos cuentan', d: '5 Confetis o 10 Universos seguidos, todos', ic: '<rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18"/>' },
   ],
 };
 
