@@ -34,7 +34,7 @@ es: {
 'f-contacto': 'Contacto',
 'f-ayuda': 'Centro de ayuda',
 'f-reembolsos': 'Reembolsos',
-'footer-copy': '© 2025 TikiGames. Todos los derechos reservados.',
+'footer-copy': '© ' + new Date().getFullYear() + ' TikiGames. Todos los derechos reservados.',
 },
 en: {
 'nav-inicio': 'Home',
@@ -71,7 +71,7 @@ en: {
 'f-contacto': 'Contact',
 'f-ayuda': 'Help center',
 'f-reembolsos': 'Refunds',
-'footer-copy': '© 2025 TikiGames. All rights reserved.',
+'footer-copy': '© ' + new Date().getFullYear() + ' TikiGames. All rights reserved.',
 }
 };
 function applyLang(lang) {

@@ -297,7 +297,8 @@
   background: radial-gradient(120% 70% at 50% 0%, #2a1630, #0c0c13 70%);
 }
 .bt-pantalla img { width: 100%; height: auto; }
-.bt-vista.asentado .bt-movil { animation: p-flota 5s ease-in-out infinite; }
+@keyframes bt-flota { 0%, 100% { translate: 0 -50%; } 50% { translate: 0 calc(-50% - 10px); } }
+.bt-vista.asentado .bt-movil { animation: bt-flota 5s ease-in-out infinite; }
 
 /* ─── Overlays: 4 bloques con su color, como la galería de la app ─── */
 .ov-bloques { display: flex; flex-wrap: wrap; gap: 28px 22px; }

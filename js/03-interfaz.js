@@ -53,3 +53,5 @@ if (arrow) arrow.style.transform = 'rotate(180deg)';
 }
 }
 window.toggleFaq = toggleFaq;
+/* El año del pie, siempre el de hoy (5-nov-2026: decía 2025 escrito a mano) */
+document.querySelectorAll('[data-anio]').forEach(e => { e.textContent = new Date().getFullYear(); });
