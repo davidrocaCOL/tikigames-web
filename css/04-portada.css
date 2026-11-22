@@ -300,7 +300,7 @@
 @keyframes bt-flota { 0%, 100% { translate: 0 -50%; } 50% { translate: 0 calc(-50% - 10px); } }
 .bt-vista.asentado .bt-movil { animation: bt-flota 5s ease-in-out infinite; }
 
-/* ─── Overlays: 4 bloques con su color, como la galería de la app ─── */
+/* ─── Overlays: 5 bloques con su color, como la galería de la app ─── */
 .ov-bloques { display: flex; flex-wrap: wrap; gap: 28px 22px; }
 .ov-bloque { flex: var(--n) 1 0; min-width: min(100%, calc(var(--n) * 150px)); }
 .ov-grupo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; margin-bottom: 12px; }
@@ -335,13 +335,20 @@
   font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 1px 7px; border-radius: 99px;
   background: rgba(46,229,157,.14); color: #2ee59d;
 }
+/* (22-nov-2026) las fotos muy anchas (Wins, Barras) aprovechan todo el ancho de la tarjeta */
+.ov-ancha img { inset: 4%; width: 92%; height: 92%; }
+/* (22-nov-2026) Atajos de teclado no sale en pantalla: su dibujo grande en vez de foto */
+.ov-dibujo { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--g); }
+.ov-dibujo .ic { width: 42%; height: auto; aspect-ratio: 1; stroke-width: 1.3; filter: drop-shadow(0 0 22px color-mix(in srgb, var(--g) 55%, transparent)); transition: transform .35s var(--muelle); }
+.ov-dibujo small { color: var(--ink-dim); font-size: 12px; font-weight: 700; }
+.ov-tarjeta:hover .ov-dibujo .ic { transform: scale(1.06) rotate(-4deg); }
 .ov-tarjeta.reveal .ov-foto img { transform: scale(.85); opacity: 0; }
 .ov-tarjeta.reveal.visible .ov-foto img { transform: none; opacity: 1; transition: transform .8s var(--muelle) calc(var(--retraso, 0s) + .15s), opacity .4s ease calc(var(--retraso, 0s) + .15s); }
 .ov-tarjeta.reveal.asentado .ov-foto img { transition: transform .35s var(--suave); }
 .ov-tarjeta.reveal.asentado:hover .ov-foto img { transform: scale(1.05); }
 
 @media (max-width: 1100px) {
-  .ov-bloque { flex-basis: 100%; }
+  .ov-bloque { min-width: min(100%, calc(var(--n) * 130px)); }
 }
 @media (max-width: 860px) {
   .p-batalla .portada-ancho { grid-template-columns: 1fr; gap: 28px; }
@@ -349,6 +356,7 @@
   .bt-panel { width: 92%; }
   .bt-movil { width: 150px; left: 0; }
   .bt-puntos { grid-template-columns: 1fr; }
+  .ov-bloque { flex-basis: 100%; }
   .ov-rejilla { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .p-funciones { grid-template-columns: repeat(2, 1fr); }
 }

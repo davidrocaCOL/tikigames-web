@@ -1,12 +1,14 @@
 /* ============================================
    TIKIGAMES - OVERLAYS (portada)
-   Los 13 overlays de la app, en sus 4 bloques y con sus colores, igual que la
+   Los 18 overlays de la app, en sus 5 bloques y con sus colores, igual que la
    galería de Overlays de la app (TikiGames/js/13g-overlays-galeria.js).
    Cada tarjeta enseña el overlay tal y como sale en el live (fotos sacadas de
    la vista previa de la app, con datos de ejemplo) y al tocarla se abre su
    ventana con lo que trae (la misma ventana de «Todo en uno», js/07-funciones.js).
    Va DESPUÉS de 07-funciones.js y ANTES de 02-animaciones.js.
    5-nov-2026, Ace: «actualiza lo que hay dentro de cada overlay».
+   22-nov-2026, Ace: «actualiza con todo lo que tenemos dentro de la app»: Podio, Marcos MVP,
+   Barras del live, Wins y Atajos de teclado, y el bloque «Para tus juegos» (app 1.2.47).
    ============================================ */
 
 const OV_REL = s => '<g style="fill:currentColor;fill-opacity:.22;stroke:none">' + s + '</g>';
@@ -21,6 +23,15 @@ const OV_ICONOS = {
   estrella: OV_REL('<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/>') + '<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/>',
   batalla: OV_REL('<circle cx="5" cy="6" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="19" cy="18" r="3"/>') + '<circle cx="5" cy="6" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><path d="M10 9.5l2 4.5 2-4.5"/>',
   crono: OV_REL('<circle cx="12" cy="14" r="8"/>') + '<circle cx="12" cy="14" r="8"/><path d="M12 10v4l2.5 2M10 2h4M12 2v4M19 6l1.5-1.5"/>',
+  podio: OV_REL('<path d="M9 8.5h6V21H9z"/>') + '<path d="M9 21V8.5h6V21M3 21v-7.5h6M15 21v-5h6v5M2 21h20"/><path d="M12 2.5l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2-1.4-1.4 2-.3z"/>',
+  bandera: OV_REL('<path d="M5.5 4h13l-2.6 4.5L18.5 13h-13z"/>') + '<path d="M5.5 21.5V4h13l-2.6 4.5L18.5 13h-13"/>',
+  campana: OV_REL('<path d="M6 16.5V11a6 6 0 0112 0v5.5l1.6 2H4.4z"/>') + '<path d="M6 16.5V11a6 6 0 0112 0v5.5l1.6 2H4.4zM10 21a2.2 2.2 0 004 0M12 3V2"/>',
+  mando: OV_REL('<rect x="2" y="6" width="20" height="12" rx="4.5"/>') + '<rect x="2" y="6" width="20" height="12" rx="4.5"/><path d="M7 10.2v3.6M5.2 12h3.6"/><circle cx="16" cy="10.8" r="1.3"/><circle cx="18.2" cy="13.2" r="1.3"/>',
+  llama: OV_REL('<path d="M12 21.5c-3.9 0-6.8-2.8-6.8-6.6 0-3.3 2.3-5.4 3.9-8.1.5 1.9 1.5 3.1 2.7 3.5.3-3.6 1.4-6.1 3.4-7.6.3 3.3 3.4 5.6 3.4 10.4 0 4.6-2.9 8.4-6.6 8.4z"/>') + '<path d="M12 21.5c-3.9 0-6.8-2.8-6.8-6.6 0-3.3 2.3-5.4 3.9-8.1.5 1.9 1.5 3.1 2.7 3.5.3-3.6 1.4-6.1 3.4-7.6.3 3.3 3.4 5.6 3.4 10.4 0 4.6-2.9 8.4-6.6 8.4z"/>',
+  barras: OV_REL('<rect x="2" y="8" width="20" height="8" rx="4"/>') + '<rect x="2" y="8" width="20" height="8" rx="4"/><circle cx="6.5" cy="12" r="2"/><path d="M10.5 12h5"/><path d="M19 9.5l1.6 1.4L19 14.5l-1.6-3.6z"/>',
+  marco: OV_REL('<circle cx="12" cy="13.5" r="6.5"/>') + '<circle cx="12" cy="13.5" r="6.5"/><circle cx="12" cy="13.5" r="3.2"/><path d="M6.5 6l2.8 2.6L12 4.5l2.7 4.1L17.5 6l-.8 3.5H7.3z"/>',
+  wins: OV_REL('<path d="M7 3.5h10V9a5 5 0 01-10 0z"/>') + '<path d="M7 3.5h10V9a5 5 0 01-10 0z"/><path d="M12 14v3.5M8 21h8M9.5 17.5h5V21h-5z"/><path d="M2.2 6.6h3M3.7 5.1v3M18.8 6.6h3"/>',
+  teclado: OV_REL('<rect x="2" y="6" width="20" height="12" rx="2"/>') + '<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/>',
   'vs-barra': '<rect x="2" y="9" width="20" height="6" rx="3"/><path d="M12 6v12"/>',
   'vs-duelo': '<rect x="2" y="6" width="7" height="9" rx="2"/><rect x="15" y="6" width="7" height="9" rx="2"/><path d="M10.5 9l1.5 3 1.5-3"/>',
   'vs-reto': '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/><circle cx="18" cy="18" r="3"/>',
@@ -35,9 +46,24 @@ const OVERLAYS = {
   toplikes: { n: 'Top tap-taps', ic: 'corazon', g: '#ffb02e', gratis: true,
     d: 'Quién da más tap-taps',
     puntos: ['Cuenta los tap-taps igual que TikTok Live Studio.', 'El top 3 destacado y corona para el primero.', 'Último directo o top histórico, con un toque.'] },
-  topgift: { n: 'Top regalo y racha', ic: 'estrella', g: '#ffd15c', gratis: true,
+  topgift: { n: 'Top regalo y racha', ic: 'llama', g: '#ffd15c', gratis: true,
     d: 'El regalo más caro y la racha más larga',
     puntos: ['Quién mandó el regalo más caro del live.', 'Y quién hizo la racha más larga.'] },
+  podio: { n: 'Podio', ic: 'podio', g: '#ffc13b',
+    d: 'Los mejores del live, de un juego o de tu lista',
+    puntos: ['Los mejores del live, de uno de tus juegos o de tu propia lista.', 'Cinco diseños: podio, tabla, barras, tarjetas o carrusel.', 'Corona, medallas o números, y la foto redonda, cuadrada o hexagonal.', 'Cuando alguien sube de puesto, brilla.'] },
+  marcos: { n: 'Marcos MVP', ic: 'marco', g: '#ffd76a',
+    d: 'La foto del MVP en un marco de insignia',
+    puntos: ['La foto de quien más apoya, en un marco como las insignias de TikTok.', 'Por monedas, nivel de donador, club de fans o mejor regalo.', 'Cuanto más alto el nivel, más brilla el marco: alas, corona y destellos.'] },
+  barras: { n: 'Barras del live', ic: 'barras', g: '#d8a8ff', ancha: true,
+    d: 'Niveles, regalos y entradas VIP, como las de TikTok',
+    puntos: ['«Alcanzó el nivel de donador», club de fans, regalos y entradas VIP.', 'Cada nivel con su insignia y su color, como en TikTok.', 'Con la foto de cada persona (o el logo de TikiGames si no tiene).'] },
+  wins: { n: 'Wins', ic: 'wins', g: '#5aa9ff', ancha: true,
+    d: 'Los regalos que suman contra los que quitan wins',
+    puntos: ['Lo que suma y lo que quita wins en tu juego, frente a frente.', 'Sale solo de las Interacciones de cada juego.', 'Cada regalo con su foto y sus wins (+2, −5…).'] },
+  atajos: { n: 'Atajos de teclado', ic: 'teclado', g: '#5aa9ff', gratis: true, sinFoto: true,
+    d: 'Un regalo pulsa una tecla en tu juego',
+    puntos: ['Cada regalo pulsa la tecla que tú elijas, en cualquier juego del PC.', 'Varios perfiles: uno para cada juego.', 'No sale en pantalla: trabaja por detrás.'] },
   metas: { n: 'Metas', ic: 'meta', g: '#2ee59d',
     d: 'Me gusta, monedas, seguidores o compartidos',
     puntos: ['Una barra que se llena sola con tu live.', 'Me gusta, monedas, seguidores o compartidos.', 'Varias metas a la vez, cada una con su texto.'] },
@@ -49,7 +75,7 @@ const OVERLAYS = {
     puntos: ['Cuenta atrás o cronómetro con vueltas.', 'El título y los números, cada uno con su tamaño.'] },
   batalla: { n: 'Batalla de imágenes', ic: 'batalla', g: '#ff5a7e',
     d: 'Hasta 16 equipos, cada uno con su regalo',
-    puntos: ['Clubes, selecciones o tus propias imágenes: la arrastras encima del equipo y listo.', 'Cada equipo se une con su regalo de 1 moneda, para que todos puedan jugar.', 'Por tiempo o en Supervivencia: cada tanto se va el que menos tiene, hasta la final.', 'Taps, follows y compartidos también suman para el equipo de cada uno.', 'Copas para cada equipo, sonidos y unos últimos segundos que duran el triple.'],
+    puntos: ['Clubes, selecciones o tus propias imágenes: la arrastras encima del equipo y listo.', 'Se entra comentando el equipo (y cualquier regalo le suma) o con su regalo de 1 moneda, para que todos puedan jugar.', 'Por tiempo o en Supervivencia: cada tanto se va el que menos tiene, hasta la final.', 'Taps, follows y compartidos también suman para el equipo de cada uno.', 'Copas para cada equipo, sonidos y unos últimos segundos que duran el triple.'],
     fotos: [['overlays/batalla.webp', 'Así se ve en tu live'], ['funciones/batalla-1.jpg', 'Se prepara en la app']] },
   'vs-barra': { n: 'Tira y afloja', ic: 'vs-barra', g: '#ff3d6e',
     d: 'La barra se va hacia el que más lleva',
@@ -71,11 +97,13 @@ const OVERLAYS = {
     puntos: ['Los últimos mensajes con su foto y su nombre, y los regalos.', 'Voces naturales en español, inglés y portugués.', 'Filtros para que nadie abuse: quién puede, espera por persona, enlaces y palabras bloqueadas.'] },
 };
 
+// (22-nov-2026) en el orden de filas de la app: Tops + Para tus juegos · Objetivos + Alertas · Batallas
 const OV_BLOQUES = [
-  { t: 'Tops', ic: 'copa', c: '#ffc13b', items: ['topregalos', 'toplikes', 'topgift'] },
-  { t: 'Objetivos y tiempo', ic: 'meta', c: '#2ee59d', items: ['metas', 'subathon', 'temporizador'] },
+  { t: 'Tops', ic: 'podio', c: '#ffc13b', items: ['podio', 'marcos', 'topregalos', 'toplikes', 'topgift'] },
+  { t: 'Para tus juegos', ic: 'mando', c: '#5aa9ff', items: ['wins', 'atajos'] },
+  { t: 'Objetivos y tiempo', ic: 'bandera', c: '#2ee59d', items: ['metas', 'subathon', 'temporizador'] },
+  { t: 'Alertas, chat y voz', ic: 'campana', c: '#c084fc', items: ['alertas', 'barras', 'chat'] },
   { t: 'Batallas', ic: 'versus', c: '#ff3d6e', items: ['batalla', 'vs-barra', 'vs-duelo', 'vs-reto', 'vs-equipos'] },
-  { t: 'Alertas, chat y voz', ic: 'regalo', c: '#c084fc', items: ['alertas', 'chat'] },
 ];
 
 (function () {
@@ -84,7 +112,7 @@ const OV_BLOQUES = [
   // cada overlay, también en las ventanas de «Todo en uno»
   Object.entries(OVERLAYS).forEach(([k, o]) => {
     FUNCIONES[k] = { titulo: o.n, color: o.g, intro: o.d + '.', puntos: o.puntos, ic: ic(o.ic), ov: true,
-      fotos: o.fotos || [['overlays/' + k + '.webp', 'Así se ve en tu live']] };
+      fotos: o.sinFoto ? [] : o.fotos || [['overlays/' + k + '.webp', 'Así se ve en tu live']] };
   });
   if (!caja) return;
   caja.innerHTML = OV_BLOQUES.map(b => `
@@ -93,7 +121,9 @@ const OV_BLOQUES = [
       <div class="ov-rejilla">${b.items.map(k => {
         const o = OVERLAYS[k];
         return `<div class="ov-tarjeta reveal" data-funcion="${k}" role="button" tabindex="0" aria-label="Ver ${o.n}" style="--g:${o.g}">
-          <div class="ov-foto"><img src="assets/img/overlays/${k}.webp" alt="${o.n}" loading="lazy" /></div>
+          <div class="ov-foto${o.sinFoto ? ' ov-sin-foto' : ''}${o.ancha ? ' ov-ancha' : ''}">${o.sinFoto
+            ? `<span class="ov-dibujo">${ic(o.ic)}<small>No sale en pantalla</small></span>`
+            : `<img src="assets/img/overlays/${k}.webp" alt="${o.n}" loading="lazy" />`}</div>
           <div class="ov-texto">
             <span class="ic-caja">${ic(o.ic)}</span>
             <div><h4>${o.n}${o.gratis ? '<span class="ov-gratis">Gratis</span>' : ''}</h4><p>${o.d}</p></div>

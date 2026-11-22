@@ -12,6 +12,7 @@ const FUNCIONES = {
     puntos: [
       'Por capas: la de arriba tapa a las de abajo. El ojo la oculta, el candado la bloquea y Supr la quita.',
       '«Agregar overlay»: tops, metas, alertas, batallas, chat y videos.',
+      'Tu cámara como una capa más, para verte con todo encima.',
       'Arrastra para mover, la esquina agranda y los lados recortan. Doble clic: se ajusta solo.',
       'Plantillas listas (Clásica, Esencial, Ranking y Extensible) y tipo de live: cámara, batalla o gaming.',
       'Ejemplo en Live Studio: ves dónde queda cada overlay antes del directo.',
@@ -111,10 +112,10 @@ const FUNCIONES = {
           <span class="ic-caja fn-ic">${f.ic || (icono ? icono.outerHTML : '')}</span>
           <div><h2>${f.titulo}</h2><p>${f.intro}</p></div>
         </div>
-        <figure class="fn-vista${f.ov ? ' es-ov' : ''}">
+        ${f.fotos.length ? `<figure class="fn-vista${f.ov ? ' es-ov' : ''}">
           <img src="${ruta(f.fotos[0][0])}" alt="${f.fotos[0][1]}" />
           <figcaption>${f.fotos[0][1]}</figcaption>
-        </figure>
+        </figure>` : ''}
         ${f.fotos.length > 1 ? `<div class="fn-minis">${f.fotos.map(([n, t], i) => `
           <button type="button" class="fn-mini${i ? '' : ' on'}" data-foto="${ruta(n)}" data-texto="${t}">
             <img src="${ruta(n)}" alt="" loading="lazy" /><span>${t}</span>
