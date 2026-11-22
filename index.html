@@ -72,7 +72,7 @@
         <div class="p-nota"><b>Para Windows 10 y 11</b><br>Se actualiza sola</div>
       </div>
       <div class="p-chips reveal">
-        <span><b>19</b> juegos</span><span><b>18</b> overlays</span><span>Batalla de imágenes</span><span>Escena</span><span>Stream Deck</span><span>Chat con voz</span><span>Estadísticas</span>
+        <span><b data-n-juegos>19</b> juegos</span><span><b>18</b> overlays</span><span>Batalla de imágenes</span><span>Escena</span><span>Stream Deck</span><span>Chat con voz</span><span>Estadísticas</span>
       </div>
     </div>
     <div class="p-abanico reveal" aria-hidden="true" data-mv="abanico">
@@ -113,62 +113,14 @@
   <div class="portada-ancho">
     <div class="p-cabeza reveal">
       <small>Juegos</small>
-      <h2>19 juegos <em>dentro de la app</em></h2>
+      <h2><span data-n-juegos>19</span> juegos <em>dentro de la app</em></h2>
         <p>Tu comunidad decide la partida con sus regalos, taps y follows. Lo que hace cada regalo lo eliges tú desde la app, y en Live Studio cada juego va a pantalla completa o en cuadrado, junto a tu cámara.</p>
     </div>
-    <div class="p-juegos">
-        <a class="p-juego reveal" href="pages/catalogo.html#zumbaclass">
-          <img src="assets/img/portadas/portada-zumbaclass.jpg" alt="Zumba Class" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">Zumba Class</h3><p>Una clase de zumba: cada regalo te mete a bailar.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#leavingearth">
-          <img src="assets/img/portadas/portada-leavingearth.jpg" alt="Leaving Earth" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">Leaving Earth</h3><p>Un viaje al espacio: el chat sube al cohete y esquiva asteroides.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#weddingparty">
-          <img src="assets/img/portadas/portada-weddingparty.jpg" alt="Wedding Party" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">Wedding Party</h3><p>La fiesta de la boda: cada regalo da un papel en la fiesta.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#futbolito">
-          <img src="assets/img/portadas/portada-futbolito.jpg" alt="Futbolito" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">Futbolito</h3><p>Una mesa de futbolito: los taps patean y los regalos lanzan poderes.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#neonrace">
-          <img src="assets/img/portadas/portada-neonrace.jpg" alt="Neon Race" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">Neon Race</h3><p>Motos de luz en una ciudad de neón, de noche.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#parchis">
-          <img src="assets/img/portadas/portada-parchis.jpg" alt="Parchís" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">Parchís</h3><p>Carrera de figuritas en un parqués 3D sobre la mesa.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#worldmap">
-          <img src="assets/img/portadas/portada-worldmap.jpg" alt="World Map" loading="lazy" width="600" height="800" />
-          <span class="p-juego-nuevo">Nuevo</span>
-          <div class="p-juego-texto"><h3 class="jc-titulo">World Map</h3><p>El mundo en 100 zonas que se pintan a punta de regalos.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#trompobattle">
-          <img src="assets/img/portadas/portada-trompobattle.jpg" alt="Trompo Battle" loading="lazy" width="600" height="800" />
-          <div class="p-juego-texto"><h3 class="jc-titulo">Trompo Battle</h3><p>Todos contra todos: cada persona del directo con su trompo.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#donttouchwater">
-          <img src="assets/img/portadas/portada-donttouchwater.jpg" alt="Don’t Touch the Water" loading="lazy" width="600" height="800" />
-          <div class="p-juego-texto"><h3 class="jc-titulo">Don’t Touch the Water</h3><p>Parkour a oscuras: si tocas el agua, algo viene a por ti.</p></div>
-        </a>
-        <a class="p-juego reveal" href="pages/catalogo.html#poolcleaning">
-          <img src="assets/img/portadas/portada-poolcleaning.jpg" alt="Pool Cleaning" loading="lazy" width="600" height="800" />
-          <div class="p-juego-texto"><h3 class="jc-titulo">Pool Cleaning</h3><p>Una piscina con un millón de bolas: los regalos la llenan o la vacían.</p></div>
-        </a>
-      </div>
+    <div class="p-juegos" id="p-juegos"></div>
       <div class="p-juegos-pie reveal">
-      <span>Los 19 vienen dentro de la app TikiGames</span>
+      <span>Los <span data-n-juegos>19</span> vienen dentro de la app TikiGames</span>
       <a class="btn btn-primary btn-descargar" href="https://github.com/davidrocaCOL/tikigames/releases/latest/download/TikiGames-Instalador.exe"><svg class="icono-windows" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span>Descargar</span></a>
-      <a class="btn btn-outline" href="pages/catalogo.html">Ver los 19 juegos →</a>
+      <a class="btn btn-outline" href="pages/catalogo.html">Ver los <span data-n-juegos>19</span> juegos →</a>
     </div>
   </div>
 </section>
@@ -351,9 +303,11 @@
 
 <script src="js/00-menu.js?v=20"></script>
 <script src="js/01-buscador.js?v=20"></script>
+<script src="js/05a-juegos-datos.js?v=24"></script>
+<script src="js/05b-juegos-portada.js?v=24"></script>
 <script src="js/07-funciones.js?v=22"></script>
 <script src="js/09-overlays.js?v=23"></script>
-<script src="js/02-animaciones.js?v=20"></script>
+<script src="js/02-animaciones.js?v=24"></script>
 <script src="js/08-luces.js?v=20"></script>
 <script src="js/03-interfaz.js?v=21"></script>
 <script src="js/04-idioma.js?v=21"></script>

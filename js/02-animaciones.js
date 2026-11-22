@@ -72,6 +72,7 @@ requestAnimationFrame(paso);
 // Ace: las animaciones van SIEMPRE, aunque Windows tenga «reducir movimiento»
 if (!('IntersectionObserver' in window)) {
 revelables.forEach(el => el.classList.add('visible'));
+window.revelar = el => el.classList.add('visible');
 } else {
 const revealObserver = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
@@ -93,6 +94,13 @@ el.classList.remove('visible', 'asentado');
 });
 }, { threshold: [0, 0.08, 0.2] });
 revelables.forEach(el => revealObserver.observe(el));
+// (22-nov-2026) para lo que se pinta después de cargar: los juegos nuevos que llegan de la app
+window.revelar = el => {
+const hermanos = [...el.parentElement.children].filter(h => h.classList.contains('reveal'));
+const i = hermanos.indexOf(el);
+if (i > 0) el.style.setProperty('--retraso', (Math.min(i, 9) * 0.07).toFixed(2) + 's');
+revealObserver.observe(el);
+};
 }
 function animateCounter(el) {
 const target = parseInt(el.dataset.target);

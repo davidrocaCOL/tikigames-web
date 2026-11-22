@@ -9,7 +9,8 @@
    ============================================ */
 
 const NOVEDADES_WEB = {
-  version: '1.2.47',
+  version: '1.2.47',   // (solo se ve un instante: la versión publicada se lee de GitHub)
+  entrada: '1.2.48',   // la entrada de NOVEDADES (TikiGames/js/13y-novedades.js) de la que salen estas tarjetas; la revisión automática la compara
   cosas: [
     { c: '#ff0050', t: 'Siete juegos nuevos', d: 'Futbolito, Zumba Class, Leaving Earth, World Map y más', ic: '<rect x="2" y="6" width="20" height="12" rx="4.5"/><path d="M7 10.2v3.6M5.2 12h3.6"/><circle cx="16" cy="10.8" r="1.3"/><circle cx="18.2" cy="13.2" r="1.3"/>' },
     { c: '#ff0050', t: 'Juegos a tu cámara', d: 'En Live Studio: Completo o Cuadrado', ic: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M10 9l4 1.5-4 1.5z"/>' },
