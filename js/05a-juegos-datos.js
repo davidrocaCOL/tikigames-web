@@ -20,6 +20,10 @@ const CATEGORIAS = [
 // texto: una línea para la tarjeta · largo: lo que dice la ficha (el texto de cada juego en la app, juegos.json)
 // 22-nov-2026: la web al día con la app 1.2.47: los 19 juegos publicados, los más nuevos primero (sin los BETA)
 const JUEGOS = [
+  // 24-nov-2026 (revisión automática): Stairs to Heaven, de la app 1.2.50
+  { id: 'stairstoheaven', nombre: 'Stairs to Heaven', cats: ['buenos'], nuevo: true,
+    texto: 'Escalera al cielo: buenos contra malos.',
+    largo: 'Escalera al cielo: los regalos de los buenos te suben escalones y los de los malos te bajan.' },
   { id: 'futbolito', nombre: 'Futbolito', cats: ['futbol', 'paises'], nuevo: true,
     texto: 'Una mesa de futbolito con hasta 16 países.',
     largo: 'Una mesa de futbolito con hasta 16 países: cada uno con sus muñecos, su barra y su portería. Quien comenta su país se une a él; los taps patean balones y los regalos lanzan escudos, cañonazos que se tragan las bolas, tornados, posesiones, meteoritos y agujeros negros. Gana la ronda el país que más goles mete.' },
