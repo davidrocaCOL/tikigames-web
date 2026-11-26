@@ -1,7 +1,7 @@
 /* ============================================
    TIKIGAMES - NOVEDADES DE LA APP (pages/comunidad.html)
    Las mismas tarjetas que enseña la app en «X cosas nuevas»
-   (TikiGames/js/13y-novedades.js; 24-nov-2026: las de la 1.2.50: Stairs to Heaven, Shred a Billion y lo mejor de la 1.2.48).
+   (TikiGames/js/13y-novedades.js; 26-nov-2026: las de la 1.2.54: World Map 3D, la Configuración en lista y VacBot Simulator).
    Cuando la app saque una versión con
    novedades nuevas, se copian aquí arriba.
    El número de la última versión y su fecha se leen solos de GitHub.
@@ -9,15 +9,15 @@
    ============================================ */
 
 const NOVEDADES_WEB = {
-  version: '1.2.50',   // (solo se ve un instante: la versión publicada se lee de GitHub)
-  entrada: '1.2.50',   // la entrada de NOVEDADES (TikiGames/js/13y-novedades.js) de la que salen estas tarjetas; la revisión automática la compara
+  version: '1.2.54',   // (solo se ve un instante: la versión publicada se lee de GitHub)
+  entrada: '1.2.54',   // la entrada de NOVEDADES (TikiGames/js/13y-novedades.js) de la que salen estas tarjetas; la revisión automática la compara
   cosas: [
-    { c: '#ff0050', t: 'Stairs to Heaven, a tu manera', d: 'Cualquier regalo, escalones o wins, y escribes el número', ic: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>' },
-    { c: '#ff0050', t: 'Shred a Billion ya está', d: 'Vacía la bóveda con tu chat · en Juegos → Mods', ic: '<path d="M10 3.5a2 2 0 014 0V6h4a1 1 0 011 1v4h-2.5a2 2 0 000 4H19v4a1 1 0 01-1 1h-4v-2.5a2 2 0 00-4 0V20H6a1 1 0 01-1-1v-4h2.5a2 2 0 000-4H5V7a1 1 0 011-1h4z"/>' },
-    { c: '#ff0050', t: 'Siete juegos nuevos', d: 'Futbolito, Zumba Class, Leaving Earth, World Map y más', ic: '<rect x="2" y="6" width="20" height="12" rx="4.5"/><path d="M7 10.2v3.6M5.2 12h3.6"/><circle cx="16" cy="10.8" r="1.3"/><circle cx="18.2" cy="13.2" r="1.3"/>' },
-    { c: '#ff0050', t: 'Juegos a tu cámara', d: 'En Live Studio: Completo o Cuadrado', ic: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M10 9l4 1.5-4 1.5z"/>' },
-    { c: '#ff0050', t: 'Barras del live', d: 'Nivel, club de fans, regalos y entrada VIP', ic: '<path d="M5 20v-8M12 20V5M19 20v-5"/>' },
-    { c: '#ff0050', t: 'Marcos MVP', d: 'Quien más dona, con su foto e insignias', ic: '<path d="M3 8l4 4 5-7 5 7 4-4-2 11H5L3 8z"/>' },
+    { c: '#ff0050', t: 'World Map 3D ya está', d: 'Cada país sube en el mundo, capa a capa', ic: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/>' },
+    { c: '#ff0050', t: 'Configuración en lista', d: 'Añade, cambia o quita cualquier regalo, como quieras', ic: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>' },
+    { c: '#ff0050', t: 'Tres juegos a tu manera', d: 'Stairs to Heaven, Shred a Billion y VacBot Simulator', ic: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>' },
+    { c: '#ff0050', t: 'Probar y detener', d: 'Pruebas un regalo y lo paras cuando quieras', ic: '<rect x="6" y="6" width="12" height="12" rx="2"/>' },
+    { c: '#ff0050', t: 'Arranque más limpio', d: 'La app abre sin ventana blanca', ic: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>' },
+    { c: '#ff0050', t: 'VacBot Simulator ya está', d: 'Tu chat llena la casa de confeti y tú la limpias · en Juegos → Mods', ic: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v2M4 12h2"/>' },
   ],
 };
 

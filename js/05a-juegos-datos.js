@@ -20,6 +20,10 @@ const CATEGORIAS = [
 // texto: una línea para la tarjeta · largo: lo que dice la ficha (el texto de cada juego en la app, juegos.json)
 // 22-nov-2026: la web al día con la app 1.2.47: los 19 juegos publicados, los más nuevos primero (sin los BETA)
 const JUEGOS = [
+  // 26-nov-2026 (revisión automática): World Map 3D, de la app 1.2.54
+  { id: 'worldmap3d', nombre: 'World Map 3D', cats: ['paises'], nuevo: true,
+    texto: 'La Tierra en 3D, capa a capa.',
+    largo: 'La Tierra en 3D: cada país sube capa a capa con los colores de su bandera y la foto de quien puso la última. Gana la ronda el que más metros tenga.' },
   // 24-nov-2026 (revisión automática): Stairs to Heaven, de la app 1.2.50
   { id: 'stairstoheaven', nombre: 'Stairs to Heaven', cats: ['buenos'], nuevo: true,
     texto: 'Escalera al cielo: buenos contra malos.',
