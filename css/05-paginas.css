@@ -11,6 +11,15 @@
 .pg-arriba .p-cabeza h1 em { font-style: italic; color: var(--red); }
 
 /* ─── Juegos: menú de categorías (como los filtros de la app) ─── */
+/* (27-nov-2026) «Juegos TikiGames | Mods», como las pestañas de la app */
+.jg-pestanas { display: flex; justify-content: center; gap: 6px; width: fit-content; max-width: 100%; margin: 0 auto 18px; padding: 5px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface-2); }
+.jg-pestana { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 99px; color: var(--ink-dim); font: 700 15px var(--display); cursor: pointer; transition: background-color .2s, color .2s; }
+.jg-pestana b { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: rgba(255,255,255,.08); }
+.jg-pestana:hover { color: var(--ink); }
+.jg-pestana.on { color: #fff; background: linear-gradient(135deg, #ff2d6b, #ff0050); box-shadow: 0 6px 22px rgba(255,0,80,.35); }
+.jg-pestana.on b { background: rgba(255,255,255,.22); }
+.jg-nota-mods { max-width: 640px; margin: 0 auto 30px; text-align: center; color: var(--ink-dim); font-size: 14px; line-height: 1.6; }
+.jg-menu[hidden], .jg-nota-mods[hidden] { display: none; }
 .jg-menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 0 auto 34px; }
 .jg-filtro {
   display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 99px;

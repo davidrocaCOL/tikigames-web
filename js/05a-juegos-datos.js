@@ -135,5 +135,53 @@ function cargarJuegosVivos(alCambiar) {
     .catch(() => {});
 }
 
+/* ─── Los MODS (27-nov-2026, Ace: «los mods que se han hecho… no sé si están») ───
+   Igual que en la app (TikiGames/mods.js): un mod es una modificación de un juego de OTRA persona (su demo gratis de
+   Steam), así que va en su propia pestaña «Mods», para que se entienda que no es un juego de TikiGames, y siempre con
+   el crédito y el enlace de Steam de su creador. El texto, el creador y la tienda salen de la lista BASE de mods.js.
+   La lista publicada (mods.json, sin los BETA) se lee sola como la de los juegos: un mod nuevo sale solo. */
+const MODS = [
+  { id: 'vacbotsimulator', nombre: 'VacBot Simulator', cats: ['mod'], nuevo: true,
+    texto: 'Limpia la casa antes de que el chat la ensucie.',
+    largo: 'Limpia la casa con la aspiradora robot antes de que el chat la vuelva a ensuciar. Los regalos buenos limpian, los malos ensucian.',
+    autor: 'RadioactiveElephant', tienda: 'https://store.steampowered.com/app/4297050' },
+  { id: 'shredabillion', nombre: 'Shred a Billion', cats: ['mod'], nuevo: true,
+    texto: 'Tritura el dinero antes de que el chat lo devuelva.',
+    largo: 'Vacía la bóveda de dinero y tritúralo antes de que el chat la vuelva a llenar. Los regalos buenos quitan, los malos ponen.',
+    autor: 'ImSoTiredStudio', tienda: 'https://store.steampowered.com/app/5472080' },
+];
+const MANIFIESTO_MODS = 'https://raw.githubusercontent.com/davidrocaCOL/tikigames-juegos/main/mods.json';
+let LISTA_MODS = MODS.slice();
+const pintarNumerosMods = () => document.querySelectorAll('[data-n-mods]').forEach(e => { e.textContent = LISTA_MODS.length; });
+
+function cargarModsVivos(alCambiar) {
+  pintarNumerosMods();
+  fetch(MANIFIESTO_MODS, { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : null)
+    .then(m => {
+      if (!m || typeof m !== 'object' || Array.isArray(m)) return;
+      const ahora = Date.now();
+      const reciente = x => !!(x && x.estreno && ahora - Date.parse(x.estreno) < DIAS_NUEVO * 864e5);
+      const publicado = x => x && x.beta !== true;
+      const conocidos = MODS.filter(j => publicado(m[j.id])).map(j => ({ ...j, nuevo: reciente(m[j.id]) }));
+      const yaEstan = new Set(MODS.map(j => j.id));
+      const deLaApp = Object.entries(m)
+        .filter(([id, x]) => !yaEstan.has(id) && publicado(x) && typeof x.nombre === 'string' && /^[a-z0-9-]+$/.test(id))
+        .sort((a, b) => (Date.parse(b[1].estreno) || 0) - (Date.parse(a[1].estreno) || 0))
+        .map(([id, x]) => ({
+          id, nombre: x.nombre, cats: ['mod'], texto: 'Mod de un juego de Steam.', largo: 'Un mod de TikiGames para la demo gratis de un juego de Steam: tu público juega con sus regalos, taps y follows.',
+          img: /^https:\/\//.test(x.portada || '') ? x.portada : `${RAIZ}assets/img/logo/og-image.png`,
+          nuevo: !x.estreno || reciente(x), desdeApp: true,
+        }));
+      const lista = [...deLaApp, ...conocidos];
+      const firma = l => l.map(j => j.id + (j.nuevo ? '*' : '')).join(',');
+      if (firma(lista) === firma(LISTA_MODS)) return;
+      LISTA_MODS = lista;
+      pintarNumerosMods();
+      if (alCambiar) alCambiar(LISTA_MODS);
+    })
+    .catch(() => {});
+}
+
 // los nombres y textos de la app van a la página como texto, nunca como código
 const limpio = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

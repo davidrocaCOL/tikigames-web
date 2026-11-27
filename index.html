@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/02-componentes.css?v=20" />
   <link rel="stylesheet" href="css/03-animaciones.css?v=20" />
   <link rel="stylesheet" href="css/04-portada.css?v=23" />
-  <link rel="stylesheet" href="css/05-paginas.css?v=22" />
+  <link rel="stylesheet" href="css/05-paginas.css?v=25" />
   <link rel="stylesheet" href="css/06-luces.css?v=20" />
   <link rel="stylesheet" href="css/07-guia-descarga.css?v=20" />
   <link rel="icon" href="favicon.ico?v=20" sizes="any" />
@@ -72,10 +72,11 @@
         <div class="p-nota"><b>Para Windows 10 y 11</b><br>Se actualiza sola</div>
       </div>
       <div class="p-chips reveal">
-        <span><b data-n-juegos>19</b> juegos</span><span><b>18</b> overlays</span><span>Batalla de imágenes</span><span>Escena</span><span>Stream Deck</span><span>Chat con voz</span><span>Estadísticas</span>
+        <span><b data-n-juegos>21</b> juegos</span><span><b data-n-mods>2</b> mods</span><span><b>18</b> overlays</span><span>Batalla de imágenes</span><span>Escena</span><span>Stream Deck</span><span>Chat con voz</span><span>Estadísticas</span>
       </div>
     </div>
-    <div class="p-abanico reveal" aria-hidden="true" data-mv="abanico">
+    <!-- las 3 portadas: los 3 últimos juegos, el más nuevo en el centro; se ponen solas (js/05b-juegos-portada.js) -->
+    <div class="p-abanico reveal" id="p-abanico" aria-hidden="true" data-mv="abanico">
       <img src="assets/img/portadas/portada-leavingearth.jpg" alt="" width="600" height="800" />
       <img src="assets/img/portadas/portada-zumbaclass.jpg" alt="" width="600" height="800" />
       <img src="assets/img/portadas/portada-trompobattle.jpg" alt="" width="600" height="800" />
@@ -303,8 +304,8 @@
 
 <script src="js/00-menu.js?v=20"></script>
 <script src="js/01-buscador.js?v=20"></script>
-<script src="js/05a-juegos-datos.js?v=26"></script>
-<script src="js/05b-juegos-portada.js?v=24"></script>
+<script src="js/05a-juegos-datos.js?v=25"></script>
+<script src="js/05b-juegos-portada.js?v=25"></script>
 <script src="js/07-funciones.js?v=22"></script>
 <script src="js/09-overlays.js?v=23"></script>
 <script src="js/02-animaciones.js?v=24"></script>
